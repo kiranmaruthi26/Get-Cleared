@@ -1,0 +1,200 @@
+body{
+	padding: 0;
+	margin: 0;
+}
+header{
+	
+	display: flex;
+	top: 0px;
+	width: 100%;
+	background:  #ccffcc;
+	border-radius: 10px;
+}
+header nav{
+	flex: 3;
+}
+header nav ul{
+	display: flex;
+}
+header nav ul li{
+	flex: 1;
+	list-style: none;
+}
+header nav ul li a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	text-decoration: none;
+	color: red;
+	font-size: 25px;
+}
+header nav h1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+}
+.solution-container{
+	background: white;
+	width: 100%;
+}
+table{
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+
+}
+table th, td{
+	border: 1px solid #ddd;
+	padding: 8px;
+
+}
+table tr:nth-child(even){
+	background: #f2f2f2;
+}
+table tr:hover {background-color: #ddd;}
+table td a{
+	text-decoration: none;
+}
+table td a{
+	text-decoration: none;
+	color: blue;
+}
+table td a:hover{
+	text-decoration: underline;
+}
+table td form button{
+	padding: 10px;
+	background: none;
+	border-radius: 10px;
+	border:2px solid;
+}
+table td form button:hover{
+	background: #99ff66;
+	box-shadow: 5px 2px 2px 0px; 
+}
+.solution{
+	display: flex;
+	justify-content: center;
+}
+.title{
+	text-align: center;
+	font-family:Courier New;
+}
+table th{
+	background: green;
+}
+header nav ul li a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	text-decoration: none;
+	color: blue;
+	font-size: 20px;
+}
+.titleSection{
+	margin-left: 45px;
+}
+.logout:hover{
+	color: red;
+	box-shadow: 0px 2px 5px 0px;
+	border-radius: 20px;
+	padding: 8px;
+}
+.menu a:hover{
+	color: #7305A4;
+	box-shadow: 0px 2px 5px 0px;
+	border-radius: 20px;
+	padding: 8px;
+}
+.headTitle{
+	letter-spacing: 5px;
+	font-size: 30px;
+	text-shadow: 1px 1px 10px;
+	color: #AD3A04 ;
+
+}
+table td a{
+	text-decoration: none;
+	color: blue;
+	display: flex;
+	justify-content: center;
+}
+table td a:hover{
+	text-decoration: underline;
+}
+table td form button{
+	padding: 10px;
+	background: none;
+	border-radius: 10px;
+	border:2px solid;
+}
+table td form button:hover{
+	background: #99ff66;
+	box-shadow: 5px 2px 2px 0px; 
+}
+.solution{
+	display: flex;
+	justify-content: center;
+}
+.title{
+	text-align: center;
+	font-family:Courier New;
+}
+table th{
+	background: green;
+}
+header nav ul li a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	text-decoration: none;
+	color: blue;
+	font-size: 20px;
+}
+.titleSection{
+	margin-left: 45px;
+}
+.logout:hover{
+	color: red;
+	box-shadow: 0px 2px 5px 0px;
+	border-radius: 20px;
+	padding: 8px;
+}
+.menu a:hover{
+	color: #7305A4;
+	box-shadow: 0px 2px 5px 0px;
+	border-radius: 20px;
+	padding: 8px;
+}
+.headTitle{
+	letter-spacing: 5px;
+	font-size: 30px;
+	text-shadow: 1px 1px 10px;
+	color: #AD3A04 ;
+
+}
+.success-submit-sol{
+	display: flex;
+	justify-content: center;
+}
+.success-submit-sol div{
+	border:1px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 8px;
+	background: #539227;
+	color: #D7F6C1;
+}
+.noNewQuestions{
+	display: flex;
+	justify-content: center;
+}
+.noNewQuestions div{
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	padding: 20px;
+}

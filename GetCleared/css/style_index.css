@@ -1,0 +1,105 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #0B385A;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+}
+.box form{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #02101A;
+    text-align: center;
+    box-shadow: 10px 10px 12px 10px;
+}
+.box form h6{
+    color: white;
+    letter-spacing: 2px;
+}
+.box form input[type = "text"], .box form input[type ="password"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border: 2px solid #A1C0D7;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.box form input[type = "text"]:focus, .box form input[type ="password"]:focus{
+    width: 200px;
+    border-color: #AAD8B9;
+}
+.box form input[type = "submit"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border: 2px solid #AAD8B9;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+
+}
+.box form input[type = "submit"]:hover{
+    background: linear-gradient(#15F65F,#66B1CC);
+}
+.error{
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px auto; 
+}
+button{
+     border: 0;
+    background: none;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    border: 2px solid #AAD8B9;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    text-decoration:none;
+}
+.logout{
+    text-decoration: none;
+    border: 2px solid #d7dee2;
+    color: white;
+    background-color: #4a148c;
+    font-size: 25px;
+    border-radius: 5px;
+
+}
+.head-container h1{
+    flex-grow: 1;
+}
+.info{
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+}

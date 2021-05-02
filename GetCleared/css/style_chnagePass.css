@@ -1,0 +1,142 @@
+body{
+	padding: 0;
+	margin: 0;
+}
+header{
+			
+	display: flex;
+	top: 0px;
+	width: 100%;
+	background:  #ccffcc;
+	border-radius: 10px;
+}
+header nav{
+	flex: 3;
+}
+header nav ul{
+	display: flex;
+}
+header nav ul li{
+	flex: 1;
+	list-style: none;
+}
+header nav ul li a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	text-decoration: none;
+	color: red;
+	font-size: 25px;
+}
+header nav h1{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+}
+.main-container{
+	display: flex;
+	justify-content: center;
+	align-content: : center;
+}
+.form-container{
+	padding: 50px;
+	margin-top: 50px;
+	border-radius: 20px;
+	box-shadow: 1px 2px 2px 3px;
+	background-color: #FAF6F4;
+
+}
+.form-container div{
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+}
+.form-container div input[type="text"], .form-container div input[type="password"]{
+	padding: 10px;
+	width: 300px;
+	text-align: center;
+	border:none;
+	border-bottom: 2px solid black;
+	background-color: #FAF6F4;
+	font-size: 20px;
+	color: black;
+}
+.form-container div input[type="text"]:hover, .form-container div input[type="password"]:hover{
+    border-color:green;
+
+}
+.form-container div input[type="submit"]{
+	padding: 10px;
+	width: 200px;
+	font-size: 15px;
+	background: none;
+	border-radius: 10px;
+}
+.form-container div input[type="submit"]:hover{
+	box-shadow: 1px 2px 2px 2px;
+	background: #AFF695;
+}
+.form-container div h2{
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+header nav ul li a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	text-decoration: none;
+	color: blue;
+	font-size: 20px;
+}
+.titleSection{
+	margin-left: 45px;
+}
+.logout:hover{
+	color: red;
+	box-shadow: 0px 2px 5px 0px;
+	border-radius: 20px;
+	padding: 8px;
+}
+.getDout h2 a{
+	text-decoration: none;
+	color: black;
+	border:2px solid;
+	display: flex;
+	justify-content: center;
+	border-radius: 10px;
+	background:  #000099; 
+	color: white;
+	padding: 10px;
+}
+.buttonClass:hover{
+	background-color: #0A4E68;
+}
+.menu a:hover{
+	color: #7305A4;
+	box-shadow: 0px 2px 5px 0px;
+	border-radius: 20px;
+	padding: 8px;
+}
+.headTitle{
+	letter-spacing: 5px;
+	font-size: 30px;
+	text-shadow: 1px 1px 10px;
+	color: #AD3A04 ;
+
+}
+.form-container{
+	margin-top: 10px;
+	padding: 30px;
+}
+.errorDiv{
+	background: #FBCDC9;
+	color: #CC1506;
+	border-radius: 20px;
+}
+.successDiv{
+	background: #B3F684;
+	color: #367708;
+	border-radius: 20px;
+}

@@ -1,0 +1,1025 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Loign - GetCleared</title>
+    <link rel="stylesheet" type="text/css" href="./css/style_index.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style type="text/css">
+        
+
+                body{
+            padding: 0;
+            margin: 0;
+            background-color: #0B385A;
+        }
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: white;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+        }
+        .box form{
+            width: 450px;
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #02101A;
+            text-align: center;
+            box-shadow: 10px 10px 12px 10px;
+        }
+        .box form input[type = "text"], .box form input[type ="password"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+            border: 2px solid #A1C0D7;
+            padding: 14px 10px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+        }
+        .box form input[type = "text"]:focus, .box form input[type ="password"]:focus{
+            width: 300px;
+            border-color: #AAD8B9;
+        }
+        .box form input[type = "submit"]{
+            border: 0;
+            background: none;
+            display: block;
+            margin: 30px auto;
+            text-align: center;
+            border: 2px solid #AAD8B9;
+            padding: 14px 40px;
+            outline: none;
+            color: white;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+
+        }
+        .box form input[type = "submit"]:hover{
+            background: linear-gradient(#15F65F,#66B1CC);
+        }
+        .error{
+            background: #F2DEDE;
+            color: #A94442;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px auto; 
+        }
+
+        #custom_button{
+            background: none;
+            border-radius: 25px;
+            border:2px solid #AAD8B9; 
+
+        }
+        #custom_button:hover{
+            background: linear-gradient(#15F65F,#66B1CC);
+            border:2px solid #AAD8B9; 
+        }
+        .modal-body{
+            height: auto;
+        }
+</style>
+</head>
+
+<body>
+    <section>
+        <header>
+            <h1>Get Cleared</h1>
+        </header>
+    </section>  
+    <section class="box">
+        <form  action="login.php" method="post">
+            <h1>Login</h1>
+            <?php if(isset($_GET['error'])){?>
+                <p class="error"><?php echo $_GET['error'] ;?></p>
+           <?php }?>
+            <input type="text" placeholder="Username" name="username">
+            <input type="password" placeholder="Password" name="password">
+            <input type="submit" value="Login">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentRegistration" data-whatever="@mdo">Student Registration</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#facultyRegistration" data-whatever="@mdo">Faculty Registration</button>
+               
+        </form>
+       
+    </section>
+    <!-- Student registration-->
+        <section class="popup">
+                   <div class="modal fade" id="studentRegistration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop = "static" data-keyboard="false">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Student Registration from</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="register_student.php" method="post">
+                                <?php if(isset($_GET['invalid'])){?>
+                                    <p class="error"><?php echo $_GET['invalid'] ;?></p>
+                                <?php }?>
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Name</label>
+                                <input type="text" class="form-control" id="recipient-name" name="name" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Roll Number</label>
+                                <input type="text" class="form-control" id="recipient-rollnumber" name="rollnumber" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Password</label>
+                                <input type="password" class="form-control" id="recipient-password" name="password" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Conform Password</label>
+                                <input type="text" class="form-control" id="recipient-cpassword" name="cpassword" required>
+                              </div>
+                                </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+        </section>
+
+
+        <!--Faculty registration -->
+
+         <section class="popup">
+                   <div class="modal fade" id="facultyRegistration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop = "static" data-keyboard="false">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Faculty Registration from</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="register_faculty.php" method="post">
+                                <?php if(isset($_GET['invalid'])){?>
+                                    <p class="error"><?php echo $_GET['invalid'] ;?></p>
+                                <?php }?>
+                              <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Name</label>
+                                <input type="text" class="form-control" id="recipient-Fname" name="fname" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Faculty Id</label>
+                                <input type="text" class="form-control" id="recipient-Fid" name="f_id" required>
+                              </div>
+                              <div class="form-group">
+                                <lable for="message-text" class="col-form-label">Course your handling</lable>
+                                <select class="form-control" name="course">
+                                    <option value="selectCourse">Select course</option>
+                                    <option value="java">Java</option>
+                                    <option value="Python">Python</option>
+                                    <option value="CO">Computer Organisation</option>
+                                    <option value="flat">FLAT</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Password</label>
+                                <input type="password" class="form-control" id="recipient-Fpassword" name="fpassword" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="message-text" class="col-form-label">Conform Password</label>
+                                <input type="text" class="form-control" id="recipient-cfpassword" name="fcpassword" required>
+                              </div>
+                                </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+        </section>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+<?php 
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$db ="db";
+$conn = mysqli_connect($host,$user,$password,$db);
+
+if(!$conn){
+    echo "Conntection failed".mysqli_error();
+}
+
+?>
+<?php 
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['username'])){
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask a Doubt - GetCleared</title>
+    <link rel="stylesheet" type="text/css" href="./css/style_ask.css">
+</head>
+<body>
+    <section>
+        <header class="head-container">
+            <nav>
+                <ul>
+                    <li><h3>Hello, <?php echo $_SESSION['name'];?></h3></li>
+                    <li><h1>GetCleared</h1></li>
+                    <li> <a href="logout.php">LOGOUT</a></li>
+
+                </ul>  
+            </nav>
+        </header>
+    </section>
+    <section class="doubt-container">
+        <section class="formBody">
+
+            <form method="post" action="submit-doubt.php" enctype="multipart/form-data">
+                <div class="attemptdiv">
+                    <?php if(isset($_GET['error'])){?>
+                        <p class="error"><?php echo $_GET['error'] ;?></p>
+                    <?php }?>
+                </div>
+                <div class="attemptdiv">
+                    <?php if(isset($_GET['success'])){?>
+                        <p class="success"><?php echo $_GET['success'] ;?></p>
+                    <?php }?>
+                </div>
+                <div>
+                    <h4>Roll Number</h4>
+                    <input type="text" name="rollnumber" value='<?php echo $_SESSION['username'];?>' disabled class="rollinput">
+                </div>
+                <div>
+                    <h4>Select Course</h4>
+                    <select class="select-sub" name="course">
+                    <option value="emptyValue">Select Course</option>
+                    <option value="java">Java</option>
+                    <option value="Python">Python</option>
+                    <option value="CO">Computer Organisation</option>
+                    <option value="flat">FLAT</option>
+                    </select>
+                </div>
+                <div class="fileinput">
+                    <h4>Upload the Screenshot/ Photo</h4>
+                    <input type="File" name="file">
+                </div>
+                <div>
+                    <h4>Tell something about your doubt</h4>
+                    <textarea rows =10 cols=50 name="doubt-text" maxlength="1000" placeholder="Sir, Can you explain me the above mentioned doubt"></textarea>
+                </div>
+                <div class="submitinput">
+                    <input type="submit" name="submit">
+                </div>
+            </form>
+        </section>
+
+    </section> 
+
+</body>
+</html>
+
+<?php 
+}else{
+
+    header("Location: index.php");
+    exit();
+}
+?>
+<?php 
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['username'])){
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask a Doubt - GetCleared</title>
+    <link rel="stylesheet" type="text/css" href="./css/style_checkSolution.css">
+</head>
+<body>
+    <section>
+        <header class="head-container">
+            <nav>
+                <ul>
+                    <li><h3>Hello, <?php echo $_SESSION['name'];?></h3></li>
+                    <li><h1>GetCleared</h1></li>
+                    <li> <a href="logout.php">LOGOUT</a></li>
+
+                </ul>  
+            </nav>
+        </header>
+    </section>
+    <section class="solution-container">
+       <!--  <table>
+            <th></th>
+            <th></th>
+            <th></th>
+        </table> -->
+        <?php 
+            include "db.php";
+
+            $roll = $_SESSION['username'];
+            $sql = "SELECT * FROM student_doubt WHERE rollnumber='".$roll."'";
+            $result = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result) > 0){
+                echo "<table>";
+                echo "<tr>";
+                echo "<th>Id</th>";
+                echo "<th>Roll Number</th>";
+                echo "<th>Course</th>";
+                echo "<th>Doubt</th>";
+                echo "<th>File</th>";
+                echo "<th>Solution</th>";
+                echo "</tr>";
+                while($row = mysqli_fetch_array($result)){
+                    echo "<tr>";
+                    echo "<td>" . $row['id'] . "</td>";
+                    echo "<td>" . $row['rollnumber'] . "</td>";
+                    echo "<td>" . $row['course'] . "</td>";
+                    echo "<td>" . $row['doubt'] . "</td>";
+                    echo "<td> <a href =./student_uploads/". $row['images']." target=blank>View</a></td>";
+                    echo "<td> <a href =./student_uploads/"." "." target=blank>Check solution</a></td>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+                 mysqli_free_result($result);
+            }
+            else{
+                echo "No records matching your query were found.";
+            }
+
+
+
+        ?>
+        
+    </section> 
+
+</body>
+</html>
+
+<?php 
+}else{
+
+    header("Location: index.php");
+    exit();
+}
+?>
+<?php 
+include "db.php";
+session_start();
+    
+    if(isset($_POST['question_no']) && isset($_POST['solution_text'])){
+
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        $faculty_id = $_SESSION['faculty_id'];
+        $solution = $_POST['solution_text'];
+        $problem_id = $_POST['question_no'];
+
+        if(empty($solution)){
+            header("Location: submit-solution.php?error=solution field is required");
+            exit();
+        }else{
+
+            // File upload path
+            $fullFileName =$_FILES["file"]["name"];
+            $tmepName = $_FILES["file"]["tmp_name"];
+            $fileType = $_FILES["file"]["type"];
+            $uploads_dir = 'faculty_uploads';
+            $newFileName = uniqid("",true).'-'.$faculty_id.'.'.ltrim($fileType,"image/");
+            move_uploaded_file($tmepName, $uploads_dir.'/'.$newFileName);
+            date_default_timezone_set("Asia/Kolkata");
+            $time = date("h:i:s");
+            $date = date("Y-m-d");
+            $dateTime = $date." ".$time;
+
+            $insert = "INSERT INTO `faculty_solution` (`problem_id`, `faculty_id`, `image`, `solution`,`datetime`) VALUES ('$problem_id', '$faculty_id', '$newFileName', '$solution',NOW())";
+            if($insert){
+
+            mysqli_query($conn,$insert);
+
+            header("Location: submit-solution.php?success=Thankyou, Your doubt was submitted successfully with GetCleared");
+            }else{
+                echo "Error in connectig to form";
+            }
+        }
+
+
+
+    }else{
+
+        header("Location: submit-solution.php?error=returning back");
+        exit(); 
+    }
+
+
+    
+ ?>
+ <?php 
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style_home-faculty.css">
+    <title>Home - GetCleared</title>
+</head>
+<body>
+    <section>
+        <header class="head-container">
+            <nav>
+                <ul>
+                    <li><h3>Hello, <?php echo $_SESSION['name'];?></h3></li>
+                    <li><h1>GetCleared</h1></li>
+                    <li> <a href="logout.php" class="logout">Logout</a></li>
+
+                </ul>  
+            </nav>
+        </header>
+    </section> 
+
+    <section class="main-container">
+        
+        <section class="upsection">
+            <section class="getDout">
+                <section class="imgContainer">
+                    <a href="./solve-problem.php"><img src="./images/solved-question.jpg"></a>
+                </section>
+                <section>
+                    <h2><a href="./solve-problem.php">Solve new problem</a></h2>
+                </section>
+            </section>
+            <section class="getDout">
+                 <section class="imgContainer">
+                    <a href="./checksolutions.php"><img src="./images/check-solutions.png"></a>
+                </section>
+                <section>
+                    <h2><a href="./checksolutions.php">Check solved problems</a></h2>
+                </section>
+            </section>
+        </section>
+        
+    </section> 
+</body>
+</html>
+
+<?php 
+}else{
+
+    header("Location: index.php");
+    exit();
+}
+?> 
+<?php 
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style_home-student.css">
+    <title>Home - GetCleared</title>
+</head>
+<body>
+    <section>
+        <header class="head-container">
+            <nav>
+                <ul>
+                    <li><h3>Hello, <?php echo $_SESSION['name'];?></h3></li>
+                    <li><h1>GetCleared</h1></li>
+                    <li> <a href="logout.php" class="logout">Logout</a></li>
+
+                </ul>  
+            </nav>
+        </header>
+    </section> 
+
+    <section class="main-container">
+        
+        <section class="upsection">
+            <section class="askDout">
+                <section class="imgContainer">
+                    <a href="./Ask-doubt.php"><img src="./images/Ask-a-doubt.png"></a>
+                </section>
+                <section>
+                    <h2><a href="./Ask-doubt.php">Ask a doubt</a></h2>
+                </section>
+            </section>
+            <section class="askDout">
+                 <section class="imgContainer">
+                    <a href="./checksolutions.php"><img src="./images/solution.jpg"></a>
+                </section>
+                <section>
+                    <h2><a href="./checksolutions.php">Check for Solution</a></h2>
+                </section>
+            </section>
+        </section>
+        
+    </section> 
+</body>
+</html>
+
+<?php 
+}else{
+
+    header("Location: index.php");
+    exit();
+}
+?>
+<?php
+session_start();
+include "db.php";
+    if(isset($_POST['username']) && isset($_POST['password'])){
+
+
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        $uname = validate($_POST['username']);
+        $pass = validate($_POST['password']);
+
+        if(empty($uname)){
+            header("Location: index.php?error=User Name is required");
+            exit(); 
+
+        }else if(empty($pass)){
+            header("Location: index.php?error=Password is required");
+            exit();
+
+        }else{
+            $sql_student = "SELECT * FROM students WHERE username='".$uname."' OR passwords='".$pass."'";
+            $sql_fac ="SELECT * FROM faculty WHERE faculty_id='".$uname."' OR password='".$pass."'";
+
+            $result_stuednt = mysqli_query($conn, $sql_student);
+            $result_fac = mysqli_query($conn,$sql_fac);
+            if(mysqli_num_rows($result_stuednt) == 1){
+                
+                $row = mysqli_fetch_assoc($result_stuednt);
+
+                if($row['username'] === $uname && $row['passwords'] === $pass){
+
+                    $_SESSION['username'] = $row['username'];
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['name'] = $row['name'];
+                    header("Location: home-student.php");
+                    exit();
+
+                }else{
+                    header("Location: index.php?error=Incorrect username or Password");
+                    exit();
+                }
+            }elseif(mysqli_num_rows($result_fac)==1){
+                $row = mysqli_fetch_assoc($result_fac);
+
+                if($row['faculty_id'] === $uname && $row['password'] === $pass){
+                    $_SESSION['faculty_id'] = $row['faculty_id'];
+                    $_SESSION['id'] = $row['id'];
+                    $_SESSION['name'] = $row['name'];
+                    $_SESSION['course'] = $row['course'];
+                    header("Location: home-faculty.php");
+                    exit();
+                }
+            }
+            else{
+                header("Location: index.php?error=User doesn't exist");
+                exit();
+            }
+        }
+
+    }else{
+        header("Location: index.php?");
+        exit(); 
+    }
+ ?>
+
+<?php 
+session_start();
+
+session_unset();
+session_unset();
+header("Location: index.php");
+?>
+<?php 
+
+include "db.php";
+
+if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword']) && isset($_POST['fcpassword'])&& isset($_POST['course'])){
+
+
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        /*function function_alert($message) {
+      
+            // Display the alert box 
+            echo "<script>alert('$message');</script>";
+        }*/
+        $name = validate($_POST['fname']);
+        $fac_id = validate($_POST['f_id']);
+        $pass = validate($_POST['fpassword']);
+        $cpass = validate($_POST['fcpassword']);
+        $course = validate($_POST['course']);
+
+        if(empty($name)){
+            header("Location: index.php?invalid=Name is required");
+            exit(); 
+
+        }elseif(empty($fac_id)){
+            header("Location: index.php?invalid=Faculty ID is required");
+            exit(); 
+
+        }elseif ($course == 'selectCourse') {
+            header("Location: index.php?invalid=Please select the course your handling");
+            exit(); 
+        }elseif(empty($pass)){
+            header("Location: index.php?invalid=password is required");
+            exit(); 
+
+        }elseif(empty($cpass)){
+            header("Location: index.php?invalid=Confrom password is required");
+            exit(); 
+
+        }
+        else{
+            if($pass === $cpass){
+                $insert = "INSERT INTO faculty(faculty_id,name,course,password) VALUES('$fac_id','$name','$course','$pass')";
+                mysqli_query($conn,$insert);
+                // Function call
+                //function_alert("Account Successfully Created..!");
+                header("Location: index.php?success=Account created Successfully");
+            }else{
+                header("Location: index.php?invalid=password and Conform password should be same");
+                exit(); 
+            }
+
+        }
+}
+else{
+    header("Location: index.php?");
+    exit(); 
+}
+
+
+?>
+<?php 
+
+include "db.php";
+
+if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['password']) && isset($_POST['cpassword'])){
+
+
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        /*function function_alert($message) {
+      
+            // Display the alert box 
+            echo "<script>alert('$message');</script>";
+        }*/
+        $name = validate($_POST['name']);
+        $roll = validate($_POST['rollnumber']);
+        $pass = validate($_POST['password']);
+        $cpass = validate($_POST['cpassword']);
+
+        if(empty($name)){
+            header("Location: index.php?invalid=Name is required");
+            exit(); 
+
+        }elseif(empty($roll)){
+            header("Location: index.php?invalid=Roll Number is required");
+            exit(); 
+
+        }elseif(empty($pass)){
+            header("Location: index.php?invalid=password is required");
+            exit(); 
+
+        }elseif(empty($cpass)){
+            header("Location: index.php?invalid=Confrom password is required");
+            exit(); 
+
+        }else{
+            if($pass === $cpass){
+                $insert = "INSERT INTO students(username,passwords,name) VALUES('$roll','$pass','$name')";
+                mysqli_query($conn,$insert);
+                // Function call
+                //function_alert("Account Successfully Created..!");
+                header("Location: index.php?");
+            }else{
+                header("Location: index.php?invalid=password and Conform password should be same");
+                exit(); 
+            }
+
+        }
+}
+else{
+    header("Location: index.php?");
+    exit(); 
+}
+
+
+?>
+<?php 
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['course'])){
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style_solve.css">
+    <title>Home - GetCleared</title>
+
+    <style type="text/css">
+        table td a{
+            text-decoration: none;
+            color: blue;
+        }
+        table td a:hover{
+            text-decoration: underline;
+        }
+        table td form button{
+            padding: 10px;
+            background: none;
+            border-radius: 10px;
+            border:2px solid;
+        }
+        table td form button:hover{
+            background: #99ff66;
+            box-shadow: 5px 2px 2px 0px; 
+        }
+        .solution{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <header class="head-container">
+            <nav>
+                <ul>
+                    <li><h3>Hello, <?php echo $_SESSION['name'];?></h3></li>
+                    <li><h1>GetCleared</h1></li>
+                    <li> <a href="logout.php" class="logout">Logout</a></li>
+
+                </ul>  
+            </nav>
+        </header>
+    </section> 
+
+    <section class="main-container">
+         <?php 
+            include "db.php";
+
+            $course = $_SESSION['course'];
+            $sql = "SELECT * FROM student_doubt WHERE course='".$course."' AND status='unsolved' ";
+            $result = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result) > 0){
+                echo "<table>";
+                echo "<tr>";
+                echo "<th>Id</th>";
+                echo "<th>Roll Number</th>";
+                echo "<th>Course</th>";
+                echo "<th>Doubt</th>";
+                echo "<th>File</th>";
+                echo "<th>Solution</th>";
+                echo "</tr>";
+                while($row = mysqli_fetch_array($result)){
+                   // $_SESSION['id'] = $row['id'];
+                    echo "<tr>";
+                    echo "<td>". $row['id'] ."</td>";
+                    echo "<td>" . $row['rollnumber'] . "</td>";
+                    echo "<td>" . $row['course'] . "</td>";
+                    echo "<td>" . $row['doubt'] . "</td>";
+                    echo "<td> <a href =./student_uploads/". $row['images']." target=blank>View</a></td>";
+                    echo "<td class=solution> <form action="."submit-solution.php"." method=post>";
+                    echo "<input value = ".$row['id']." name=Qid hidden>";
+                    echo "<button type=submit id=qid-button>Send Solution</button></td>";
+                    echo "</form>";
+                    echo "</tr>";
+                }
+                echo "</table>";
+                 mysqli_free_result($result);
+            }
+            else{
+                echo "No new questions.";
+            }
+        ?>
+            
+
+
+        
+    </section> 
+
+
+</body>
+</html>
+
+<?php 
+}else{
+
+    header("Location: index.php");
+    exit();
+}
+?>  
+<<?php 
+include "db.php";
+session_start();
+    
+    if(isset($_SESSION['username']) && isset($_POST['course']) && isset($_POST['doubt-text'])){
+
+        function validate($data){
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        $rollnumber = ltrim($_SESSION['username']);
+        $course = $_POST['course'];
+        $doubt = $_POST['doubt-text'];
+
+        if($course == 'emptyValue'){
+            header("Location: Ask-doubt.php?error=Course selection required");
+            exit();
+        }/*else if(empty($files)){
+            header("Location: Ask-doubt.php?error=File selection required");
+            exit();
+        }*/else if(empty($doubt)){
+            header("Location: Ask-doubt.php?error=Doubt field is required");
+            exit();
+        }else{
+
+            // File upload path
+            $fullFileName =$_FILES["file"]["name"];
+            $tmepName = $_FILES["file"]["tmp_name"];
+            $fileType = $_FILES["file"]["type"];
+            $uploads_dir = 'student_uploads';
+            $newFileName = uniqid("",true).'-'.$rollnumber.'.'.ltrim($fileType,"image/");
+            move_uploaded_file($tmepName, $uploads_dir.'/'.$newFileName);
+            date_default_timezone_set("Asia/Kolkata");
+            $time = date("h:i:s");
+            $date = date("Y-m-d");
+            $dateTime = $date." ".$time;
+
+            $insert = "INSERT INTO `student_doubt` (`rollnumber`, `course`, `images`, `doubt`,`datetime`) VALUES ('$rollnumber', '$course', '$newFileName', '$doubt',NOW())";
+            if($insert){
+
+            mysqli_query($conn,$insert);
+
+            header("Location: Ask-doubt.php?success=Thankyou, Your doubt was submitted successfully with GetCleared");
+            }else{
+                echo "Error in connectig to form";
+            }
+        }
+
+
+
+    }else{
+
+        header("Location: Ask-doubt.php?error=returning back");
+        exit(); 
+    }
+
+
+ ?>
+ <?php 
+session_start();
+
+if(isset($_SESSION['id']) && isset($_SESSION['name'])){
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask a Doubt - GetCleared</title>
+    <link rel="stylesheet" type="text/css" href="./css/style_submitSolution.css">
+</head>
+<body>
+    <section>
+        <header class="head-container">
+            <nav>
+                <ul>
+                    <li><h3>Hello, <?php echo $_SESSION['name'];?></h3></li>
+                    <li><h1>GetCleared</h1></li>
+                    <li> <a href="logout.php">LOGOUT</a></li>
+
+                </ul>  
+            </nav>
+        </header>
+    </section>
+    <section class="doubt-container">
+        <section class="formBody">
+            <!-- <?php $question_id = $_POST['Qid'];
+                  $_SESSION['qid'] = $question_id;
+            ?> -->
+            <!--<input type="text" name="question-id" value='<?php echo $question_id;?>' disabled class="rollinput">-->
+            <form method="post" action="final-solution-submit.php" enctype="multipart/form-data">
+                <div class="attemptdiv">
+                    <?php if(isset($_GET['error'])){?>
+                        <p class="error"><?php echo $_GET['error'] ;?></p>
+                    <?php }?>
+                </div>
+                <div class="attemptdiv">
+                    <?php if(isset($_GET['success'])){?>
+                        <p class="success"><?php echo $_GET['success'] ;?></p>
+                    <?php }?>
+                </div>
+                <div>
+                    <h4>Faculty ID</h4>
+                    <input type="text" name="faculty-id" value='<?php echo $_SESSION['faculty_id'];?>' disabled class="rollinput">
+                </div>
+                <div>
+                    <h4>Problem ID</h4>
+                    
+                   <!-- <input type="text" name="question-id" value='<?php echo $question_id;?>' disabled class="rollinput"> -->
+                   <input type="text" name="question_no" value="0012" class="rollinput">
+                </div>
+                <div class="fileinput">
+                    <h4>Upload the Screenshot/ Photo</h4>
+                    <input type="File" name="file">
+                </div>
+                <div>
+                    <h4>Explain the problem</h4>
+                    <textarea rows =10 cols=50 name="solution_text" placeholder="Dear Student, So here is this solution"></textarea>
+                </div>
+                <div class="submitinput">
+                    <input type="submit" name="submit">
+                </div>
+            </form>
+        </section>
+
+    </section> 
+
+</body>
+</html>
+
+<?php 
+}else{
+
+    header("Location: index.php");
+    exit();
+}
+?>
