@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password = "";
-$db ="u628814859_getcleared";
+$db ="db";
 $conn = mysqli_connect($host,$user,$password,$db);
 
 if(!$conn){
