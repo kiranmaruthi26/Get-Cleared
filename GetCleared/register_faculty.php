@@ -5,6 +5,32 @@ include "db.php";
 if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword']) && isset($_POST['fcpassword'])&& isset($_POST['course'])){
 
 
+        function sendEmail($toMail,$name,$vkey){
+            ini_set( 'display_errors', 1 );
+            error_reporting( E_ALL );
+            $from = "support@getcleared.in";
+            $to = $toMail;
+            $subject = "GetCleared Faculty Account verification";
+            $message = "<h2>Email verification - GetCleared</h2>
+            <h2>Hello $name</h2>
+            <h3>Your Six digit OTP for GetCleared Faculty Account verification is $vkey</h3>
+            <h5>For any support revert back to this mail</h5>
+            <p>With Regards</p>
+            <p>Kiran Maruthi Kuna</p>
+            <p>Developer - getcleared.in</p>";
+            $headers = "From:" . $from."\r\n";
+            $headers .= "MIME-Version: 1.0"."\r\n";
+            $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
+            if(mail($to,$subject,$message, $headers)) {
+        		header("Location: emailverification.php?email=$toMail");
+			    exit();	
+            } else {
+            	header("Location: index.php?error=Verification Email not sent");
+			    exit();	
+            }
+        }
+        
+        
 		function validate($data){
 			$data = trim($data);
 			$data = stripslashes($data);
@@ -23,6 +49,7 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 		$course = validate($_POST['course']);
 		$phonenumber = "+91".validate($_POST['fphonenumber']);
 		$email = validate($_POST['femail']);
+		
 
 		if(empty($name)){
 			header("Location: index.php?invalid=Name is required");
@@ -55,16 +82,18 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 			}
 			else{
 				if($pass === $cpass){
-					$insert = "INSERT INTO faculty(faculty_id,name,course,phonenumber,email,password,`datetime`) VALUES('$fac_id','$name','$course','$phonenumber','$email','$pass',NOW())";
+				    $vkey = rand(100000,999999);
+					$insert = "INSERT INTO faculty(faculty_id,name,course,phonenumber,email,password,vkey,`datetime`) VALUES('$fac_id','$name','$course','$phonenumber','$email','$pass','$vkey',NOW())";
 					// Function call
 					//function_alert("Account Successfully Created..!");
 					if(mysqli_query($conn,$insert)){
-						header("Location: index.php?success=Account created Successfully");
+					    sendEmail($email,$name,$vkey);
+						//header("Location: index.php?success=Account created Successfully");
 					}else{
 						header("Location: index.php?error=Error in conneting DataBase");
 					}
 				}else{
-					header("Location: index.php?invalid=password and Conform password should be same");
+					header("Location: index.php?error=password and Conform password should be same");
 					exit();	
 				}
 

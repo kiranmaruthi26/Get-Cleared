@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Loign - GetCleared</title>
+    <title>GetCleared</title>
     <link rel="stylesheet" type="text/css" href="./css/style_index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -26,12 +26,16 @@
             text-transform: uppercase;
             font-weight: 500;
             text-align: center;
+            padding: 0px;
+        }
+        .loginhead{
+            padding: 20px;
         }
         .box form{
             width: 450px;
             padding: 40px;
             position: absolute;
-            top: 50%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: #02101A;
@@ -80,6 +84,19 @@
             border-radius: 5px;
             margin: 20px auto; 
         }
+        .error span, .success span{
+              margin-left: 15px;
+              color: black;
+              font-weight: bold;
+              float: right;
+              font-size: 22px;
+              line-height: 20px;
+              cursor: pointer;
+              transition: 0.3s;
+        }
+        .error p, .success p{
+            margin-bottom: 0;
+        }
         .success{
             background: #D2F6B9;
             color: #49851F;
@@ -87,7 +104,7 @@
             border-radius: 5px;
             margin: 20px auto; 
         }
-
+    
         #custom_button{
             background: none;
             border-radius: 25px;
@@ -101,13 +118,24 @@
         .modal-body{
             height: auto;
         }
+        .techsupport{
+            font-size: 15px;
+            padding-top: 5px;
+        }
+        @media screen and (max-width: 992px){
+            .loginhead{
+                color: gold;
+                padding :20px;
+                size: 80px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <section>
         <header>
-            <h1>Get Cleared</h1>
+            <h1 class="loginhead">Get Cleared</h1>
         </header>
     </section>  
     <!--Login-->
@@ -115,10 +143,16 @@
         <form  action="login.php" method="post">
             <h1>Login</h1>
             <?php if(isset($_GET['error'])){?>
-                <p class="error"><?php echo $_GET['error'] ;?></p>
+                <div class="error">
+                    <span onclick="this.parentElement.style.display='none';">&times;</span>
+                    <p ><?php echo $_GET['error'] ;?></p>
+                </div>
             <?php }?>
             <?php if(isset($_GET['success'])){?>
-                <p class="success"><?php echo $_GET['success'] ;?></p>
+                <div class="success">
+                    <span onclick="this.parentElement.style.display='none';">&times;</span>
+                    <p><?php echo $_GET['success'] ;?></p>
+                </div>
             <?php }?>
             <input type="text" placeholder="Username" name="username">
             <input type="password" placeholder="Password" name="password">
@@ -126,6 +160,8 @@
             <h6>Don't have account ?</h6>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentRegistration" data-whatever="@mdo">Student Registration</button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#facultyRegistration" data-whatever="@mdo">Faculty Registration</button>
+            <h6 class="techsupport">For technical Support, contact</h6>
+            <a href="mailto: support@getcleared">support@getcleared.in</a>
             
         </form>
         
@@ -143,9 +179,6 @@
       </div>
       <div class="modal-body">
         <form action="register_student.php" method="post">
-            <?php if(isset($_GET['error'])){?>
-                <p class="error"><?php echo $_GET['error'] ;?></p>
-            <?php }?>
             <div class="form-group">
                 <label for="recipient-name" class="col-form-label">Name</label>
                 <input type="text" class="form-control" id="recipient-name" name="name" required>
@@ -169,7 +202,7 @@
                 <p class="info">*Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</p>
             </div>
             <div class="form-group">
-                <label for="message-text" class="col-form-label">Conform Password</label>
+                <label for="message-text" class="col-form-label">Confirm Password</label>
                 <input type="text" class="form-control" id="recipient-cpassword" name="cpassword" required>
             </div>
         </div>
@@ -198,9 +231,6 @@
   </div>
   <div class="modal-body">
     <form action="register_faculty.php" method="post">
-        <?php if(isset($_GET['error'])){?>
-            <p class="error"><?php echo $_GET['error'] ;?></p>
-        <?php }?>
         <div class="form-group">
             <label for="recipient-name" class="col-form-label">Name</label>
             <input type="text" class="form-control" id="recipient-Fname" name="fname" required>
@@ -235,7 +265,7 @@
             <p class="info">*Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</p>
         </div>
         <div class="form-group">
-            <label for="message-text" class="col-form-label">Conform Password</label>
+            <label for="message-text" class="col-form-label">Confirm Password</label>
             <input type="text" class="form-control" id="recipient-cfpassword" name="fcpassword" required>
         </div>
     </div>

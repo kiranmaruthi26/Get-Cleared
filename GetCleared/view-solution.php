@@ -46,16 +46,27 @@ if(isset($_GET['Qid'])){
 <head>
     <title>View Solution - GetCleared</title>
     <link rel="stylesheet" type="text/css" href="./css/style_viewsolution.css">
+    <link rel="stylesheet" type="text/css" href="./css/responsivecss.css">
+    <script>
+        function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+    </script>
 </head>
 	<body>
 	    <section>
 	         <header class="head-container">
+	         	<span style="font-size:50px;cursor:pointer" onclick="openNav()" class="menubutton">&#9776;</span>
             <div class="titleSection">
                 <h1 class="headTitle">GetCleared</h1>
                 <h3>Hello, <?php echo $_SESSION['name'];?></h3>
             </div>
             <nav>
-                <ul>
+                <ul class="navlist">
                     <li class="menu"><a href="./home-student.php">Home</a></li>
                     <li class="menu"><a href="./Ask-doubt.php">Ask a Doubt</a></li>
                     <li class="menu"><a href="./checksolutions.php">Solutions</a></li>
@@ -63,6 +74,13 @@ if(isset($_GET['Qid'])){
 
                 </ul>  
             </nav>
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="./home-student.php">Home</a>
+              <a href="./Ask-doubt.php">Ask a Doubt</a>
+              <a href="./checksolutions.php">Solutions</a>
+              <a href="logout.php">LOGOUT</a></li>
+            </div>
         </header>
 	    </section>
 
@@ -92,10 +110,11 @@ if(isset($_GET['Qid'])){
 	    	<div class="solution-left-div">
 	    		<h3>Uploaded Image</h3>
 	    	</div>
-	    		<div class="solution-right-div">
+	    		<div class="solution-right-div responsiveClassImg">
 		    		<?php 
-		    			echo "<a href=./faculty_uploads/".$solution_img." target=_blank><img src=./faculty_uploads/".$solution_img." class=solutionImg></a>";
+		    			echo "<a href=./faculty_uploads/".$solution_img." target=_blank><img src=./faculty_uploads/".$solution_img." class=solutionImg alt=Solutionimage></a>";
 		    		?>
+		    		<strong class="imageText">*Click on the image to download/ View</strong>
 	    		</div>
 	    </section>
 	    <section class="solution-container">

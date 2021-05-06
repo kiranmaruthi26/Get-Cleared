@@ -12,16 +12,27 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 <head>
     <title>Ask a Doubt - GetCleared</title>
     <link rel="stylesheet" type="text/css" href="./css/style_submitSolution.css">
+    <link rel="stylesheet" type="text/css" href="./css/responsivecss.css">
+    <script>
+        function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+    </script>
 </head>
 <body>
     <section>
         <header class="head-container">
+            <span style="font-size:50px;cursor:pointer" onclick="openNav()" class="menubutton">&#9776;</span>
             <div class="titleSection">
                 <h1 class="headTitle">GetCleared</h1>
                 <h3>Hello, <?php echo $_SESSION['fname'];?></h3>
             </div>
             <nav>
-                <ul>
+                <ul class="navlist">
                     <li class="menu"><a href="./home-faculty.php">Home</a></li>
                     <li class="menu"><a href="./solve-problem.php">New Problem</a></li>
                     <li class="menu"><a href="./solved-problems.php">Solved Problems</a></li>
@@ -29,6 +40,13 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 
                 </ul>  
             </nav>
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="./home-faculty.php">Home</a>
+              <a href="./solve-problem.php">New Problem</a>
+              <a href="./solved-problems.php">Solved Problems</a>
+              <a href="logout.php">LOGOUT</a></li>
+            </div>
         </header>
     </section>
     <section>
@@ -71,6 +89,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                 </div>
                 <div class="fileinput">
                     <h4>Upload the Screenshot/ Photo</h4>
+                    <p>*To upload multiple images try converting to pdf and upload</p>
                     <input type="File" name="file" required>
                 </div>
                 <div>

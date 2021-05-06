@@ -188,6 +188,7 @@ header nav ul li a{
 	margin-top: 8px;
 	background: #539227;
 	color: #D7F6C1;
+	width:30%; 
 }
 .noNewQuestions{
 	display: flex;
@@ -197,4 +198,19 @@ header nav ul li a{
 	border-top: 1px solid;
 	border-bottom: 1px solid;
 	padding: 20px;
+}
+.success-submit-sol span{
+	margin-left: 0px;
+	color: black;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+	align-items: center;
+}
+.success-submit-sol div p{
+	margin:0;
+	text-align: center;
 }

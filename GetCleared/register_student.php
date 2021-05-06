@@ -3,7 +3,31 @@
 include "db.php";
 
 if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['password']) && isset($_POST['cpassword'])){
-
+        
+        function sendEmail($toMail,$name,$vkey){
+            ini_set( 'display_errors', 1 );
+            error_reporting( E_ALL );
+            $from = "support@getcleared.in";
+            $to = $toMail;
+            $subject = "GetCleared Student Account verification";
+            $message = "<h2>Email verification - GetCleared</h2>
+            <h2>Hello $name</h2>
+            <h3>Your Six digit OTP for GetCleared Account verification is $vkey</h3>
+            <h5>For any support revert back to this mail</h5>
+            <p>With Regards</p>
+            <p>Kiran Maruthi Kuna</p>
+            <p>Developer - getcleared.in</p>";
+            $headers = "From:" . $from."\r\n";
+            $headers .= "MIME-Version: 1.0"."\r\n";
+            $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
+            if(mail($to,$subject,$message, $headers)) {
+        		header("Location: emailverification.php?email=$toMail");
+			    exit();	
+            } else {
+            	header("Location: index.php?error=Verification Email not sent");
+			    exit();	
+            }
+        }
 
 		function validate($data){
 			$data = trim($data);
@@ -12,7 +36,6 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 			return $data;
 		}
 		/*function function_alert($message) {
-      
     		// Display the alert box 
     		echo "<script>alert('$message');</script>";
 		}*/
@@ -22,6 +45,7 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 		$cpass = validate($_POST['cpassword']);
 		$phonenumber = "+91".validate($_POST['phonenumber']);
 		$email = validate($_POST['email']);
+		$vkey = rand(100000,999999);
 
 		if(empty($name)){
 			header("Location: index.php?error=Name is required");
@@ -51,11 +75,12 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 
 			else{
 				if($pass === $cpass){
-				$insert = "INSERT INTO students(username,passwords,name,phonenumber,email,`datetime`) VALUES('$roll','$pass','$name','$phonenumber','$email',NOW())";
+				$insert = "INSERT INTO students(username,passwords,name,phonenumber,email,vkey,`datetime`) VALUES('$roll','$pass','$name','$phonenumber','$email','$vkey',NOW())";
 				// Function call
 				//function_alert("Account Successfully Created..!");
 					if(mysqli_query($conn,$insert)){
-						header("Location: index.php?success=Account Created Successfully");
+					    sendEmail($email,$name,$vkey);
+						//header("Location: index.php?success=Account Created Successfully");
 					}else{
 						header("Location: index.php?error=Error in connecting DataBasa");
 					}

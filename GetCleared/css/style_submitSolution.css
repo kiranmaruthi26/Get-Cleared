@@ -185,3 +185,12 @@ header nav ul li a{
 	background: #AAF675;
 	border:2px solid green;
 }
+.fileinput p{
+	padding: 0;
+	margin: 0;
+	margin-bottom: 10px;
+}
+.fileinput h4{
+	padding-bottom: 0;
+	margin-bottom: 0;
+}

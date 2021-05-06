@@ -10,17 +10,28 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style_home-student.css">
+    <link rel="stylesheet" type="text/css" href="./css/responsivecss.css">
     <title>Home - GetCleared</title>
+    <script>
+        function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+    </script>
 </head>
 <body>
     <section>
         <header class="head-container">
+            <span style="font-size:50px;cursor:pointer" onclick="openNav()" class="menubutton">&#9776;</span>
             <div class="titleSection">
                 <h1 class="headTitle">GetCleared</h1>
-                <h3>Hello, <?php echo $_SESSION['name'];?></h3>
+                <h3>Hello, <?php echo $_SESSION['name'];?> 👋👋</h3>
             </div>
             <nav>
-                <ul>
+                <ul class="navlist">
                     <li class="menu"><a href="#">Home</a></li>
                     <li class="menu"><a href="./Ask-doubt.php">Ask a Doubt</a></li>
                     <li class="menu"><a href="./checksolutions.php">Solutions</a></li>
@@ -29,6 +40,15 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 
                 </ul>  
             </nav>
+
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="#">Home</a>
+              <a href="./Ask-doubt.php">Ask a Doubt</a>
+              <a href="./checksolutions.php">Solutions</a>
+              <a href="./changePassword-student.php">Change Password</a>
+              <a href="logout.php">LOGOUT</a></li>
+            </div>
         </header>
     </section> 
 
@@ -44,7 +64,10 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                 </section>
                 <?php if(isset($_GET['success'])){?>
                 <section class="success-submit">
-                    <div><?php echo $_GET['success'];?></div>
+                    <div>
+                        <span onclick="this.parentElement.style.display='none';">&times;</span>
+                        <p><?php echo $_GET['success'];?></p>
+                    </div>
                 </section>
                 <?php }?>
             </section>

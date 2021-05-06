@@ -107,3 +107,6 @@ header nav ul li a{
 .StructedClass a{
 	text-decoration: none;
 }
+.imageText{
+	display: none;
+}

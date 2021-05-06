@@ -118,4 +118,20 @@ header nav ul li a{
 	border-radius: 10px;
 	font-size: 13px;
 	color: #5F9B35;
+	width: 100%;
+}
+.success-submit div p{
+	text-align: center;
+	width: auto;
+}
+.success-submit span{
+	margin-left: 15px;
+	color: black;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+	align-items: center;
 }

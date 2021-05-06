@@ -11,16 +11,27 @@ if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['userna
 <head>
 	<title>Check your solution - GetCleared</title>
 	<link rel="stylesheet" type="text/css" href="./css/style_checkSolution.css">
+    <link rel="stylesheet" type="text/css" href="./css/responsivecss.css">
+    <script>
+        function openNav() {
+              document.getElementById("mySidenav").style.width = "250px";
+            }
+            
+            function closeNav() {
+              document.getElementById("mySidenav").style.width = "0";
+            }
+    </script>
 </head>
 <body>
 	<section>
          <header class="head-container">
+            <span style="font-size:50px;cursor:pointer" onclick="openNav()" class="menubutton">&#9776;</span>
             <div class="titleSection">
                 <h1 class="headTitle">GetCleared</h1>
                 <h3>Hello, <?php echo $_SESSION['name'];?></h3>
             </div>
             <nav>
-                <ul>
+                <ul class="navlist">
                     <li class="menu"><a href="./home-student.php">Home</a></li>
                     <li class="menu"><a href="./Ask-doubt.php">Ask a Doubt</a></li>
                     <li class="menu"><a href="#">Solutions</a></li>                    
@@ -28,6 +39,13 @@ if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['userna
 
                 </ul>  
             </nav>
+            <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="./home-student.php">Home</a>
+              <a href="./Ask-doubt.php">Ask a Doubt</a>
+              <a href="#">Solutions</a>
+              <a href="logout.php">LOGOUT</a></li>
+            </div>
         </header>
     </section>
     <section class="solution-container">
@@ -77,7 +95,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name']) && isset($_SESSION['userna
                  //mysqli_free_result($result);
             }
             else{
-                echo "No records matching your query were found.";
+                echo "<p class=noSolutions>You haven't asked any questions yet.</p>";
             }
 
 
