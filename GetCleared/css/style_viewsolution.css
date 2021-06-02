@@ -110,3 +110,10 @@ header nav ul li a{
 .imageText{
 	display: none;
 }
+.SlotionTextArea{
+    background:none;
+    border:none;
+    color:black;
+    text-align:center;
+    font-family:Sans-serif;
+}

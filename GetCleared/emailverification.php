@@ -8,6 +8,7 @@
 <head>
 	<title>Account verification - GetCleared</title>
 	<link rel="stylesheet" type="text/css" href="./css/style_emailverification.css">
+	<link rel="icon" href="/images/icon.png">
 </head>
 <body>
 	<section class="formcontainer">
@@ -17,11 +18,11 @@
 			</div>
 			<div class="noteDiv">
 			    <h4>OTP has been sent to your registered Email</h4>
+			    <p style="text-align:center; margin:1px; margin-top:3px; color:black; font-size:15px;">If OTP verification mail was not found on inbox</p>
+			    <p style="text-align:center; margin:1px;color:black;font-size:15px;">Please check spam/ Junk folder</p>
 			</div>
 			<div>
-				<input type="email" name="email" placeholder="Email" value="<?php echo $_GET['email'];?>" hidden>
-			</div>
-			<div>
+			    <input type="email" name="email" placeholder="Email" value="<?php echo $_GET['email'];?>" hidden>
 				<input type="number" name="otp" placeholder="Enter OTP">
 			</div>
 			<div class="buttonDiv">

@@ -64,7 +64,7 @@ header nav h1{
 	margin-top: 15px; 
 }
 .submitinput input{
-	width: 250px;
+	width: 200px;
 	height: 40px;
 	border-radius: 15px;
 	background: none;
@@ -180,4 +180,17 @@ form div{
 .fileinput h4{
 	padding-bottom: 0;
 	margin-bottom: 0;
+}
+.cancelClass{
+   display:flex;
+   justify-content: center;
+}
+.cancelClass a{
+    font-size:20px;
+    color:#10AAA5;
+    text-decoration:none;
+}
+.cancelClass h4{
+    margin:0;
+    color:#6926C2;
 }

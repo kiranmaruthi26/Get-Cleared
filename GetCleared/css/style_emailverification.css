@@ -4,13 +4,13 @@ body{
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	background:  #003399;
+	background-image:url("../images/login_bg.jpg");
 }
 .formcontainer{
 	margin-top: 12%;
 	border:1px solid;
 	padding: 40px;
-	background:  #00004d;
+	background:  white;
 	border-radius: 20px;
 	box-shadow: 5px 5px 10px 2px;
 }
@@ -22,20 +22,20 @@ body{
 }
 .formcontainer form div h1{
 	text-align: center;
-	color: white;
+	color: black;
 }
 .formcontainer form input[type="email"], .formcontainer form input[type="number"]{
 	width: 400px;
 	height: 30px;
 	background: none;
-	color: white;
+	color: black;
 	border-radius: 10px;
 	text-align: center;
 	border:1px solid #b30000;
 
 }
 .formcontainer form input[type="email"]:hover, .formcontainer form input[type="number"]:hover{
-	border:1px solid white;
+	border:1px solid black;
 }
 .formcontainer input::-webkit-outer-spin-button, .formcontainer input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -59,6 +59,6 @@ body{
 .noteDiv h4{
 	padding:0;
 	text-align: center;
-	color: white;
+	color: black;
 	margin:0;
 }

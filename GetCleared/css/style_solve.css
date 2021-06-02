@@ -50,6 +50,40 @@ table th, td{
 	padding: 8px;
 
 }
+.solutionClass{
+    white-space: nowrap; 
+    width: 300px; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    display:inline-block;
+}
+.solutionRow:hover{
+    cursor:pointer;
+}
+.solutionRow{
+    position: relative;
+    display: inline-block;
+    width:100%;
+    border:0;
+}
+.solutionRow .tooltiptext{
+  visibility: hidden;
+  background-color: white;
+  color:black;
+  border-radius: 6px;
+  padding: 10px;
+  border:2px solid black;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 20%;
+  margin-left: -50px;
+}
+.solutionRow:hover .tooltiptext{
+    visibility: visible;
+}
 table tr:nth-child(even){
 	background: #f2f2f2;
 }
@@ -213,4 +247,66 @@ header nav ul li a{
 .success-submit-sol div p{
 	margin:0;
 	text-align: center;
+}
+.textDiv{
+    border:1px solid;
+    margin:10px;
+    margin-left:40px;
+    margin-right:40px;
+    background:#EBECEC;
+    border-radius:10px;
+    border-style: groove;
+    box-shadow:2px 2px 2px 2px;
+    display:flex;
+    justify-content:center;
+}
+.textDiv h3, .textDiv h6{
+    margin:20px;
+}
+.textDiv h6{
+    font-size:16px;
+    text-align:center;
+}
+.textDiv h3{
+    text-align:center;
+    color:#5D0687;
+}
+.txtRow{
+    display:flex;
+    justify-content:center;
+}
+.textDiv span{
+    margin-left: 15px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-right:10px;
+}
+.textbuton{
+    padding:8px;
+    background:none;
+    border:none;
+    color:blue;
+    font-size:16px;
+    
+}
+.textbuton:hover{
+    cursor:pointer;
+    color:#480568;
+}
+.textarea{
+    width:100%;
+    background:none;
+    border:none;
+    text-align:center;
+    height:auto;
+    font-family:Sans-serif;
+    font-weight:bold;
+    font-size:15px;
+    color:black;
+    height:400px;
 }

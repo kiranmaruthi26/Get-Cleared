@@ -3,6 +3,30 @@ session_start();
 include "db.php";
 	if(isset($_POST['username']) && isset($_POST['password'])){
 
+        function sendEmail($toMail,$name,$vkey){
+            ini_set( 'display_errors', 1 );
+            error_reporting( E_ALL );
+            $from = "support@getcleared.in";
+            $to = $toMail;
+            $subject = "GetCleared Student Account verification";
+            $message = "<h2>Email verification - GetCleared</h2>
+            <h2>Hello $name</h2>
+            <h3>Your Six digit OTP for GetCleared Account verification is $vkey</h3>
+            <h5>For any support revert back to this mail</h5>
+            <p>With Regards</p>
+            <p>Kiran Maruthi Kuna</p>
+            <p>Developer - getcleared.in</p>";
+            $headers = "From:" . $from."\r\n";
+            $headers .= "MIME-Version: 1.0"."\r\n";
+            $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
+            if(mail($to,$subject,$message, $headers)) {
+        		header("Location: emailverification.php?email=$toMail");
+			    exit();	
+            } else {
+            	header("Location: index.php?error=Verification Email not sent");
+			    exit();	
+            }
+        }
 
 		function validate($data){
 			$data = trim($data);
@@ -38,16 +62,18 @@ include "db.php";
 					$_SESSION['username'] = $row['username'];
 					$_SESSION['id'] = $row['id'];
 					$_SESSION['name'] = $row['name'];
+					$_SESSION['section'] = $row['section'];
+					
+					
 					if($row['verification'] == "verified"){
 					 header("Location: home-student.php");
 					 exit();   
 					}else{
-					    header("Location: index.php?error=Please verify your E-mail and login");
-					    exit();
+					    sendEmail($row['email'],$row['name'],$row['vkey']);
 					}
 
 				}else{
-					header("Location: index.php?error=Incorrect username or Password 1");
+					header("Location: index.php?error=Incorrect username or Password");
 					exit();
 				}
 			}elseif(mysqli_num_rows($result_fac)==1){
@@ -63,15 +89,15 @@ include "db.php";
 					$_SESSION['id'] = $row['id'];
 					$_SESSION['fname'] = $row['name'];
 					$_SESSION['course'] = $row['course'];
+					$_SESSION['section'] = $row['section'];
 					if($row['verification'] == "verified"){
 					   header("Location: home-faculty.php");
 					   exit();   
 					}else{
-					    header("Location: index.php?error=Please verify your E-mail and login");
-					    exit();
+					    sendEmail($row['email'],$row['name'],$row['vkey']);
 					}
 				}else{
-					header("Location: index.php?error=Incorrect username or Password 2");
+					header("Location: index.php?error=Incorrect username or Password");
 					exit();
 				}
 			}

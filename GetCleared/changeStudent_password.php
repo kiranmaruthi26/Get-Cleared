@@ -11,6 +11,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style_chnagePass.css">
     <link rel="stylesheet" type="text/css" href="./css/responsivecss.css">
+    <link rel="icon" href="/images/icon.png">
     <title>Changer Student Password - GetCleared</title>
     <script>
         function openNav() {
@@ -92,6 +93,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                     <li class="menu"><a href="./home-faculty.php">Home</a></li>
                     <li class="menu"><a href="./solve-problem.php">New Problem</a></li>
                     <li class="menu"><a href="./solved-problems.php">Solved Problems</a></li>
+                    <li class="menu"><a href="./IDE/online_ide.php">Start Coding</a></li>
                     <li> <a href="logout.php" class="logout">LOGOUT</a></li>
 
                 </ul>  
@@ -101,6 +103,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
               <a href="./home-faculty.php">Home</a>
               <a href="./solve-problem.php">New Problem</a>
               <a href="./solved-problems.php">Solved Problems</a>
+              <a href="./IDE/online_ide.php">Start Coding</a>
               <a href="logout.php">LOGOUT</a></li>
             </div>
         </header>

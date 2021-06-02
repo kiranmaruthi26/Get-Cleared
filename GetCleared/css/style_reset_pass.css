@@ -1,0 +1,86 @@
+body{
+	background-image: url(../images/login_bg.jpg);
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	background-repeat: no-repeat;
+}
+.formSection{
+	background: white;
+	padding: 60px;
+	border: none;
+	border-radius: 20px;
+}
+.mainSection{
+	margin-top: 20px;
+	padding: 40px;
+}
+.formSection div{
+	display: flex;
+	justify-content: center;
+}
+.passInput{
+	padding: 20px;
+}
+.formSection div h1{
+	padding: 0;
+}
+.formSection input{
+	width: 300px;
+	height: 30px;
+}
+.submitButton{
+	padding: 10px;
+}
+.submitButton button{
+	width: 200px;
+	height: 40px;
+	border-radius: 20px;
+	border: none;
+}
+.lockDiv{
+	height: 150px;
+	padding: 0;
+	margin:0;
+}
+.headDiv h1{
+	letter-spacing: 10px;
+	font-weight: bolder;
+	font-size: 40px;
+	color: #21037B;
+}
+.submitButton button:hover{
+	background:#6CD876;
+	cursor: pointer;
+}
+.info{
+	margin-bottom: -30px;
+	padding: 0;
+}
+.passInput input[type="number"]::-webkit-outer-spin-button, .passInput input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.error{
+    background: #F2DEDE;
+    color: #A94442;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px auto; 
+}
+.error span, .success span{
+	margin-left: 15px;
+	color: black;
+	font-weight: bold;
+	float: right;
+	font-size: 22px;
+	line-height: 20px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+.error p{
+	margin-bottom: 0;
+}

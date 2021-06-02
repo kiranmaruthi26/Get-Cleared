@@ -62,11 +62,6 @@
 		display: inline;
 	}
 	
-	@media screen and (max-height: 450px) {
-	  .sidenav {padding-top: 15px;}
-	  .sidenav a {font-size: 18px;}
-	}
-
 	.askDout img, .getDout img{
 		width: 100%;
 		height: auto;
@@ -82,7 +77,7 @@
 		overflow-x:auto;
 	}
 	.solution-right-div img{
-		width: 200px;
+		width: 50%;
 		height: 200px;
 	}
 	.responsiveClassImg{
@@ -92,4 +87,13 @@
 		display: block;
 		font-size: 10px;
 	}
+	.SlotionTextArea{
+	    width:100%;
+	    padding:10px;
+	}
+
 }
+@media screen and (max-height: 450px) {
+	  .sidenav {padding-top: 15px;}
+	  .sidenav a {font-size: 18px;}
+	}

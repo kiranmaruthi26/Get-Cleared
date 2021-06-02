@@ -18,8 +18,10 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
             <p>With Regards</p>
             <p>Kiran Maruthi Kuna</p>
             <p>Developer - getcleared.in</p>";
-            $headers = "From:" . $from."\r\n";
+            
+            $headers = "X-Priority: 1 (Highest)";
             $headers .= "MIME-Version: 1.0"."\r\n";
+            $headers = "From:" . $from."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(mail($to,$subject,$message, $headers)) {
         		header("Location: emailverification.php?email=$toMail");
@@ -49,7 +51,7 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 		$course = validate($_POST['course']);
 		$phonenumber = "+91".validate($_POST['fphonenumber']);
 		$email = validate($_POST['femail']);
-		
+		$section = $_POST['section'];
 
 		if(empty($name)){
 			header("Location: index.php?invalid=Name is required");
@@ -83,7 +85,7 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 			else{
 				if($pass === $cpass){
 				    $vkey = rand(100000,999999);
-					$insert = "INSERT INTO faculty(faculty_id,name,course,phonenumber,email,password,vkey,`datetime`) VALUES('$fac_id','$name','$course','$phonenumber','$email','$pass','$vkey',NOW())";
+					$insert = "INSERT INTO faculty(faculty_id,name,course,phonenumber,email,section,password,vkey,`datetime`) VALUES('$fac_id','$name','$course','$phonenumber','$email','$section','$pass','$vkey',NOW())";
 					// Function call
 					//function_alert("Account Successfully Created..!");
 					if(mysqli_query($conn,$insert)){

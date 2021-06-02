@@ -1,171 +1,63 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
     <title>GetCleared</title>
-    <link rel="stylesheet" type="text/css" href="./css/style_index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/style_index.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <style type="text/css">
-        
-
-        body{
-            padding: 0;
-            margin: 0;
-            background-color: #0B385A;
-        }
-        header{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        h1{
-            color: white;
-            text-transform: uppercase;
-            font-weight: 500;
-            text-align: center;
-            padding: 0px;
-        }
-        .loginhead{
-            padding: 20px;
-        }
-        .box form{
-            width: 450px;
-            padding: 40px;
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #02101A;
-            text-align: center;
-            box-shadow: 10px 10px 12px 10px;
-        }
-        .box form input[type = "text"], .box form input[type ="password"]{
-            border: 0;
-            background: none;
-            display: block;
-            margin: 30px auto;
-            text-align: center;
-            border: 2px solid #A1C0D7;
-            padding: 14px 10px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-        }
-        .box form input[type = "text"]:focus, .box form input[type ="password"]:focus{
-            width: 300px;
-            border-color: #AAD8B9;
-        }
-        .box form input[type = "submit"]{
-            border: 0;
-            background: none;
-            display: block;
-            margin: 30px auto;
-            text-align: center;
-            border: 2px solid #AAD8B9;
-            padding: 14px 40px;
-            outline: none;
-            color: white;
-            border-radius: 24px;
-            transition: 0.25s;
-            cursor: pointer;
-
-        }
-        .box form input[type = "submit"]:hover{
-            background: linear-gradient(#15F65F,#66B1CC);
-        }
-        .error{
-            background: #F2DEDE;
-            color: #A94442;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 20px auto; 
-        }
-        .error span, .success span{
-              margin-left: 15px;
-              color: black;
-              font-weight: bold;
-              float: right;
-              font-size: 22px;
-              line-height: 20px;
-              cursor: pointer;
-              transition: 0.3s;
-        }
-        .error p, .success p{
-            margin-bottom: 0;
-        }
-        .success{
-            background: #D2F6B9;
-            color: #49851F;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 20px auto; 
-        }
-    
-        #custom_button{
-            background: none;
-            border-radius: 25px;
-            border:2px solid #AAD8B9; 
-
-        }
-        #custom_button:hover{
-            background: linear-gradient(#15F65F,#66B1CC);
-            border:2px solid #AAD8B9; 
-        }
-        .modal-body{
-            height: auto;
-        }
-        .techsupport{
-            font-size: 15px;
-            padding-top: 5px;
-        }
-        @media screen and (max-width: 992px){
-            .loginhead{
-                color: gold;
-                padding :20px;
-                size: 80px;
-            }
-        }
-    </style>
+    <link rel="icon" href="./images/icon.png">
 </head>
-
-<body>
-    <section>
-        <header>
-            <h1 class="loginhead">Get Cleared</h1>
-        </header>
-    </section>  
-    <!--Login-->
-    <section class="box">
+<body style="background-image:url('./images/login_bg.jpg');">
+    <div class="maincontainer bgdiv">
+    </div>
+    <div class="container-fluid text-center mt-5 ">
+        <section class="border rounded-3 container p-5 bg-light bg-gradient">
         <form  action="login.php" method="post">
-            <h1>Login</h1>
+            <div class="text-uppercase  text-info fw-bolder"><h1>Get Cleared</h1></div>
+            <div class="fst-italic text-uppercase text-dark">
+                <h3>Login</h3>
+            </div>
             <?php if(isset($_GET['error'])){?>
-                <div class="error">
-                    <span onclick="this.parentElement.style.display='none';">&times;</span>
-                    <p ><?php echo $_GET['error'] ;?></p>
+                <div class="alert alert-danger text-center alert-dismissible fade show container" role="alert">
+                  <strong><?php echo $_GET['error']?></strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          <?php }?>
+          <?php if(isset($_GET['success'])){?>
+            <div class="alert alert-success text-center alert-dismissible fade show container" role="alert">
+              <strong><?php echo $_GET['success']?></strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      <?php }?>
+            <section class="form-group">
+                <div class="">
+                    <input type="text" placeholder="Username" name="username" class="form-control">
                 </div>
-            <?php }?>
-            <?php if(isset($_GET['success'])){?>
-                <div class="success">
-                    <span onclick="this.parentElement.style.display='none';">&times;</span>
-                    <p><?php echo $_GET['success'] ;?></p>
+                <div class="mt-3">
+                    <input type="password" placeholder="Password" name="password" class="form-control">
                 </div>
-            <?php }?>
-            <input type="text" placeholder="Username" name="username">
-            <input type="password" placeholder="Password" name="password">
-            <input type="submit" value="Login">
-            <h6>Don't have account ?</h6>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentRegistration" data-whatever="@mdo">Student Registration</button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#facultyRegistration" data-whatever="@mdo">Faculty Registration</button>
-            <h6 class="techsupport">For technical Support, contact</h6>
-            <a href="mailto: support@getcleared">support@getcleared.in</a>
-            
+                <div class="form-footer">
+                    <input type="submit" value="Login" class="btn btn-info mt-3 w-100">
+                </div>
+            </section>
+            <div class="form-footer">
+                <h6 class="w-100"><a href="./forgotpassword.php">Forgot Password ?</a></h6>
+            </div>
+
+                <div class="form-footer text-center">
+                    <h6>Don't have account ?</h6>
+                    <button type="button" class="btn btn-info m-3" data-toggle="modal" data-target="#studentRegistration" data-whatever="@mdo">Student Registration</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#facultyRegistration" data-whatever="@mdo">Faculty Registration</button>
+                    <h6 class="mt-3">For technical Support, contact</h6>
+                    <a href="mailto: support@getcleared">support@getcleared.in</a>
+                </div>
         </form>
         
     </section>
+    </div>
     <!-- Student registration-->
     <section class="popup">
      <div class="modal fade" id="studentRegistration" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop = "static" data-keyboard="false">
@@ -185,25 +77,70 @@
             </div>
             <div class="form-group">
                 <label for="message-text" class="col-form-label">Roll Number</label>
-                <p class="info">Your Roll Number will be the username while login</p>
+                <p class="info" style="color:blue; font-size: 10px;">Your Roll Number will be the username while login</p>
                 <input type="text" class="form-control" id="recipient-rollnumber" name="rollnumber" required>
             </div>
             <div class="form-group">
                 <label for="message-text" class="col-form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="recipient-phonenumber" name="phonenumber" required pattern="[7-9]{1}[0-9]{9}">
+                <input type="tel" class="form-control" id="recipient-phonenumber" name="phonenumber" required pattern="[6-9]{1}[0-9]{9}">
             </div>
             <div class="form-group">
                 <label for="message-text" class="col-form-label">E-mail</label>
                 <input type="email" class="form-control" id="recipient-email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
             </div>
+            <!--<div class="form-group">
+                <label for="message-text" class="col-form-label">Select your Section</label>
+                <input type="radio" class="form-control" id="recipient-section" name="section" value ="A" required checked><lable>A Section</lable>
+                <input type="radio" class="form-control" id="recipient-section" name="section" value ="B" required><lable>B Section</lable>
+                <input type="radio" class="form-control" id="recipient-section" name="section" value ="C" required><lable>C Section</lable>
+                <input type="radio" class="form-control" id="recipient-section" name="section" value ="D" required><lable>D Section</lable>
+                <input type="radio" class="form-control" id="recipient-section" name="section" value ="CST" required><lable>CST</lable>
+            </div>-->
+            <div class="form-group">
+                <label for="message-text" class="col-form-label">Select your Section (Currently Accepting only IV SEM CSE&CST Only)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="exampleRadios1" value="A" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                A Section
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="exampleRadios2" value="B">
+              <label class="form-check-label" for="exampleRadios2">
+                B Section
+              </label>
+              </div>
+              
+              <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="exampleRadios3" value="C">
+              <label class="form-check-label" for="exampleRadios3">
+                C Section
+              </label>
+            </div>
+            
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="exampleRadios4" value="D">
+              <label class="form-check-label" for="exampleRadios4">
+                D Section
+              </label>
+            </div>
+            
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="exampleRadios5" value="CST">
+              <label class="form-check-label" for="exampleRadios5">
+                CST
+              </label>
+            </div>
+            
             <div class="form-group">
                 <label for="message-text" class="col-form-label">Password</label>
                 <input type="password" class="form-control" id="recipient-password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                <p class="info">*Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</p>
+                <p class="info" style="color:red; font-size:10px;">*Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</p>
             </div>
             <div class="form-group">
                 <label for="message-text" class="col-form-label">Confirm Password</label>
-                <input type="text" class="form-control" id="recipient-cpassword" name="cpassword" required>
+                <input type="password" class="form-control" id="recipient-cpassword" name="cpassword" required>
             </div>
         </div>
         <div class="modal-footer">
@@ -237,11 +174,11 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="col-form-label">Biometric ID</label>
-            <p class="info">Your Biometric id will be the username while login</p>
-            <input type="text" class="form-control" id="recipient-Fid" name="f_id" required pattern="[0-9]{4}">
+            <p class="info" style="color:blue; font-size:10px;">Your Biometric id will be the username while login</p>
+            <input type="text" class="form-control" id="recipient-Fid" name="f_id" required pattern="[0-9]{}">
         </div>
         <div class="form-group">
-            <lable for="message-text" class="col-form-label">Course your handling</lable>
+            <lable for="message-text" class="col-form-label">Course your handling (Currently Accepting only IV SEM CSE&CST Only)</lable>
             <select class="form-control" name="course">
                 <option value="selectCourse">Select course</option>
                 <option value="java">Java</option>
@@ -252,21 +189,36 @@
         </div>
         <div class="form-group">
             <label for="message-text" class="col-form-label">Phone Number</label>
-            <p>Must be a vaild Indian phone number</p>
-            <input type="tel" class="form-control" id="recipient-fphonenumber" name="fphonenumber" required pattern="[7-9]{1}[0-9]{9}">
+            <p style="margin-bottom:0;font-size:10px;color:blue;">Must be a vaild Indian phone number</p>
+            <input type="tel" class="form-control" id="recipient-fphonenumber" name="fphonenumber" required pattern="[6-9]{1}[0-9]{9}">
         </div>
         <div class="form-group">
             <label for="message-text" class="col-form-label">E-mail</label>
             <input type="email" class="form-control" id="recipient-femail" name="femail" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
         </div>
         <div class="form-group">
+                <label for="message-text" class="col-form-label">Select section your dealing with (Currently Accepting only IV SEM CSE&CST Only)</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="fexampleRadios1" value="A&B" checked>
+              <label class="form-check-label" for="exampleRadios1">
+                A and B Sections
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="section" id="fexampleRadios2" value="C&D&CST">
+              <label class="form-check-label" for="exampleRadios2">
+                C, D and CST  Section
+              </label>
+              </div>
+        <div class="form-group">
             <label for="message-text" class="col-form-label">Password</label>
             <input type="password" class="form-control" id="recipient-Fpassword" name="fpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-            <p class="info">*Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</p>
+            <p class="info" style="color:red; font-size:10px;">*Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters</p>
         </div>
         <div class="form-group">
             <label for="message-text" class="col-form-label">Confirm Password</label>
-            <input type="text" class="form-control" id="recipient-cfpassword" name="fcpassword" required>
+            <input type="password" class="form-control" id="recipient-cfpassword" name="fcpassword" required>
         </div>
     </div>
     <div class="modal-footer">
@@ -278,8 +230,7 @@
 </div>
 </div>
 </section>
-
-
+<script type="text/javascript" src="./JS/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

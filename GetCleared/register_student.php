@@ -17,8 +17,10 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
             <p>With Regards</p>
             <p>Kiran Maruthi Kuna</p>
             <p>Developer - getcleared.in</p>";
-            $headers = "From:" . $from."\r\n";
+            
+            $headers = "X-Priority: 1 (Highest)";
             $headers .= "MIME-Version: 1.0"."\r\n";
+            $headers = "From:" . $from."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(mail($to,$subject,$message, $headers)) {
         		header("Location: emailverification.php?email=$toMail");
@@ -46,6 +48,7 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 		$phonenumber = "+91".validate($_POST['phonenumber']);
 		$email = validate($_POST['email']);
 		$vkey = rand(100000,999999);
+		$section = $_POST['section'];
 
 		if(empty($name)){
 			header("Location: index.php?error=Name is required");
@@ -75,7 +78,7 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 
 			else{
 				if($pass === $cpass){
-				$insert = "INSERT INTO students(username,passwords,name,phonenumber,email,vkey,`datetime`) VALUES('$roll','$pass','$name','$phonenumber','$email','$vkey',NOW())";
+				$insert = "INSERT INTO students(username,passwords,name,phonenumber,email,section,vkey,`datetime`) VALUES('$roll','$pass','$name','$phonenumber','$email','$section','$vkey',NOW())";
 				// Function call
 				//function_alert("Account Successfully Created..!");
 					if(mysqli_query($conn,$insert)){

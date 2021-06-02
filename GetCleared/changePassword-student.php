@@ -3,146 +3,127 @@ session_start();
 
 if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 
-?>
+    ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/style_chnagePass.css">
-    <link rel="stylesheet" type="text/css" href="./css/responsivecss.css">
-    <script>
-        function openNav() {
-              document.getElementById("mySidenav").style.width = "250px";
-            }
-            
-            function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-            }
-    </script>
-    <title>Change Password - GetCleared</title>
-    <!-- <style type="text/css">
-        header nav ul li a{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            text-decoration: none;
-            color: blue;
-            font-size: 20px;
-        }
-        .titleSection{
-            margin-left: 45px;
-        }
-        .logout:hover{
-            color: red;
-            box-shadow: 0px 2px 5px 0px;
-            border-radius: 20px;
-            padding: 8px;
-        }
-        .getDout h2 a{
-            text-decoration: none;
-            color: black;
-            border:2px solid;
-            display: flex;
-            justify-content: center;
-            border-radius: 10px;
-            background:  #000099; 
-            color: white;
-            padding: 10px;
-        }
-        .buttonClass:hover{
-            background-color: #0A4E68;
-        }
-        .menu a:hover{
-            color: #7305A4;
-            box-shadow: 0px 2px 5px 0px;
-            border-radius: 20px;
-            padding: 8px;
-        }
-        .headTitle{
-            letter-spacing: 5px;
-            font-size: 30px;
-            text-shadow: 1px 1px 10px;
-            color: #AD3A04 ;
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
 
-        }
-        .form-container{
-            margin-top: 10px;
-            padding: 30px;
-        }
-        .errorDiv{
-            background: #FBCDC9;
-            color: #CC1506;
-            border-radius: 20px;
-        }
-        .successDiv{
-            background: #B3F684;
-            color: #367708;
-            border-radius: 20px;
-        }
+        <link rel="icon" href="/images/icon.png">
 
-    </style> -->
-</head>
-<body>
-    <section>
-         <header class="head-container">
-            <span style="font-size:50px;cursor:pointer" onclick="openNav()" class="menubutton">&#9776;</span>
-            <div class="titleSection">
-                <h1 class="headTitle">GetCleared</h1>
-                <h3>Hello, <?php echo $_SESSION['name'];?></h3>
-            </div>
-            <nav>
-                <ul class="navlist">
-                    <li class="menu"><a href="./home-faculty.php">Home</a></li>
-                    <li class="menu"><a href="./solve-problem.php">New Problem</a></li>
-                    <li class="menu"><a href="./solved-problems.php">Solved Problems</a></li>
-                    <li> <a href="logout.php" class="logout">LOGOUT</a></li>
+        <title>Change Password - GetCleared</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="bg-light d-flex">
 
-                </ul>  
+            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+                <div class="container-fluid">
+
+                    <div class="navbar">
+                        <div style="display: block;">
+                            <a class="navbar-brand" href="#">GetCleared</a>
+                            <div>
+                                <h6 class="text-center">Hello, <?php echo $_SESSION['name']; ?></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-4">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link"  href="./home-student.php">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Courses Module</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./Ask-doubt.php">Ask a doubt</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./checksolutions.php">Solutions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./changePassword-student.php">Change Password</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./logout.php">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>Menu
+                    </button>
+                </div>
             </nav>
-            <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a href="./home-student.php">Home</a>
-              <a href="./Ask-doubt.php">Ask a Doubt</a>
-              <a href="./checksolutions.php">Solutions</a>
-              <a href="logout.php">LOGOUT</a></li>
-            </div>
-        </header>
-    </section> 
 
-    <section class="main-container">
-        <form class="form-container" action="update-student-password.php" method="post">
-            <div>
-                <h2>Change Password</h2>
-            </div>
-            <?php if(isset($_GET['error'])){?>
-                <div class="errorDiv"><?php echo $_GET['error'];}?></div>
-            <?php if(isset($_GET['success'])){?>
-                <div class="successDiv"><?php echo $_GET['success'];}?></div>
-            <div>
-                <input type="text" name="rollnumber" placeholder="Rollnumber" value="<?php echo $_SESSION['username'] ?>"  hidden>
-                <input type="text" placeholder="Rollnumber" value="<?php echo $_SESSION['username'] ?>" disabled>
-            </div>
-            <div>
-                <input type="text" name="oldPassword" placeholder="Old Password">
-            </div>
-            <div>
-                <input type="password" name="password" placeholder="New Password">
-            </div>
-            <div>
-                <input type="password" name="cpassword" placeholder="Conform New Password">
-            </div>
-            <div>
-                <input type="submit" name="submit">
-            </div>
-        </form>
-    </section>
-    <footer style="background: black;">
-        <section>
-            <p style="color: white;text-align: center;padding: 25px;">Copyrights &#169; kiranmaruhti2k21</p>
-        </section>
-    </footer>
+        </header>
+
+        <section class="container">
+            <form class="container w-100" action="update-student-password.php" method="post">
+                <div class="form-head text-center">
+                    <h2 class="display-6">Change Password</h2>
+                </div>
+                <div class="container">
+                    <?php if(isset($_GET['error'])){?>
+                        <div class="alert alert-danger text-center alert-dismissible fade show container" role="alert">
+                          <strong><?php echo $_GET['error']?></strong>
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                  <?php }?>
+                  <?php if(isset($_GET['success'])){?>
+                    <div class="alert alert-success text-center alert-dismissible fade show container" role="alert">
+                      <strong><?php echo $_GET['success']?></strong>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              <?php }?>
+          </div>
+          <div class="form-group m-3">
+            <input class="form-control" type="text" name="rollnumber" placeholder="Rollnumber" value="<?php echo $_SESSION['username'] ?>"  hidden>
+            <input class="form-control" type="text" placeholder="Rollnumber" value="<?php echo $_SESSION['username'] ?>" disabled>
+        </div>
+        <div class="form-group m-3">
+            <input class="form-control" type="text" name="oldPassword" placeholder="Old Password">
+        </div>
+        <div class="form-group m-3">
+            <input class="form-control" type="password" name="password" placeholder="New Password">
+        </div>
+        <div class="form-group m-3">
+            <input class="form-control" type="password" name="cpassword" placeholder="Conform New Password">
+        </div>
+        <div class="form-group m-3">
+            <input class="btn w-100 btn-info" type="submit" name="submit">
+        </div>
+    </form>
+</section>
+<!-- Footer -->
+<footer class="page-footer font-small blue bg-light">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a>kunakiranmaruhti</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+
+<script type="text/javascript" src="./JS/bootstrap.min.js"></script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
 
