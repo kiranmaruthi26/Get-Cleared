@@ -20,10 +20,10 @@ include "db.php";
             $headers .= "MIME-Version: 1.0"."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(mail($to,$subject,$message, $headers)) {
-        		header("Location: emailverification.php?email=$toMail");
+        		header("Location: emailverification?email=$toMail");
 			    exit();	
             } else {
-            	header("Location: index.php?error=Verification Email not sent");
+            	header("Location: index?error=Verification Email not sent");
 			    exit();	
             }
         }
@@ -38,11 +38,11 @@ include "db.php";
 		$pass = validate($_POST['password']);
 
 		if(empty($uname)){
-			header("Location: index.php?error=User Name is required");
+			header("Location: index?error=User Name is required");
 			exit();	
 
 		}else if(empty($pass)){
-			header("Location: index.php?error=Password is required");
+			header("Location: index?error=Password is required");
 			exit();
 
 		}else{
@@ -66,14 +66,14 @@ include "db.php";
 					
 					
 					if($row['verification'] == "verified"){
-					 header("Location: home-student.php");
+					 header("Location: home-student");
 					 exit();   
 					}else{
 					    sendEmail($row['email'],$row['name'],$row['vkey']);
 					}
 
 				}else{
-					header("Location: index.php?error=Incorrect username or Password");
+					header("Location: index?error=Incorrect username or Password");
 					exit();
 				}
 			}elseif(mysqli_num_rows($result_fac)==1){
@@ -91,24 +91,24 @@ include "db.php";
 					$_SESSION['course'] = $row['course'];
 					$_SESSION['section'] = $row['section'];
 					if($row['verification'] == "verified"){
-					   header("Location: home-faculty.php");
+					   header("Location: home-faculty");
 					   exit();   
 					}else{
 					    sendEmail($row['email'],$row['name'],$row['vkey']);
 					}
 				}else{
-					header("Location: index.php?error=Incorrect username or Password");
+					header("Location: index?error=Incorrect username or Password");
 					exit();
 				}
 			}
 			else{
-				header("Location: index.php?error=User doesn't exist");
+				header("Location: index?error=User doesn't exist");
 				exit();
 			}
 		}
 
 	}else{
-		header("Location: index.php?");
+		header("Location: index?");
 		exit();	
 	}
  ?>

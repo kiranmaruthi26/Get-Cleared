@@ -46,6 +46,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 									<a class="nav-link" href="../solved-problems.php">Solved Problems</a>
 								</li>
 								<li class="nav-item">
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
+                                </li>
+								<li class="nav-item">
 									<a class="nav-link" href="../IDE/online_ide.php">Start Coding</a>
 								</li>
 								<li class="nav-item">
@@ -150,8 +153,8 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 								</div>
 								<div class="form-group">
 									<label for="message-text" class="col-form-label">Upload Header Image</label>
-									<p class="col-from-label p-0 m-0 text-danger" style="font-size:10px">Max Size :  Must be lessthan 2MB</p>
-									<p class="col-from-label p-0 m-0 text-danger" style="font-size:10px">Image Type : jpg, jpeg, png</p>
+									<p class="col-from-label p-0 m-0 text-danger " style="font-size:10px">Max Size :  Must be lessthan 2MB</p>
+									<p class="col-from-label p-0 m-0 text-danger " style="font-size:10px">Image Type : jpg, jpeg, png</p>
 									<input type="file" class="form-control" id="recipient-mlogo" name="file" required>
 								</div>
 								<div class="modal-footer">

@@ -46,7 +46,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_POST['mTitle']
 			//creat new table
 			$tablename = "livedb_".rand(100000,999999).'_'.$faculty_id;
 			
-			$creatTable = "CREATE TABLE `db`.`".$tablename."` ( 
+			$creatTable = "CREATE TABLE `u628814859_getcleared`.`".$tablename."` ( 
 			`id` INT NOT NULL AUTO_INCREMENT , 
 			`title` VARCHAR(300) NOT NULL , 
 			`description` VARCHAR(1000) NOT NULL , 
@@ -56,7 +56,10 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_POST['mTitle']
 			`startTime` TIME NOT NULL , 
 			`endTime` TIME NOT NULL , 
 			`scheduledOn` DATETIME NOT NULL , 
-			PRIMARY KEY (`id`)) ENGINE = MyISAM;";
+			PRIMARY KEY (`id`)) ENGINE = InnoDB;";
+			
+			//echo $creatTable;
+			//print_r(mysqli_query($conn,$creatTable));
 			
 			if(mysqli_query($conn,$creatTable)){
 

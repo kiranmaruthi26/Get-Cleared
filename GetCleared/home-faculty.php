@@ -14,15 +14,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="icon" href="./images/icon.png">
     <title>Home - GetCleared</title>
-    <script>
-        function openNav() {
-              document.getElementById("mySidenav").style.width = "250px";
-            }
-            
-            function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-            }
-    </script>
 </head>
 <body>
     <header class="bg-light d-flex">
@@ -45,19 +36,22 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                                     <a class="nav-link active"  href="#">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="./liveSessions/courseModule.php">Courses Module</a>
+                                    <a class="nav-link" aria-current="page" href="./liveSessions/courseModule">Courses Module</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./solve-problem.php">New Problem</a>
+                                    <a class="nav-link" href="./solve-problem">New Problem</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./solved-problems.php">Solved Problems</a>
+                                    <a class="nav-link" href="./solved-problems">Solved Problems</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./changePassword-faculty.php">Change Password</a>
+                                    <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./changePassword-faculty">Change Password</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./logout.php">Logout</a>
@@ -111,7 +105,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                                 <li>Assig Assignments</li>
                             </ul>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./liveSessions/courseModule.php">Open Module</a>
+                                    <a class="btn btn-primary text-center" href="./liveSessions/courseModule">Open Module</a>
                             </div>
                         </div>
                     </div>
@@ -141,7 +135,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                         </div>
                             <p class="card-text text-center text-warning"></p>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./solve-problem.php">Solve Problem</a>
+                                    <a class="btn btn-primary text-center" href="./solve-problem">Solve Problem</a>
                             </div>
                         </div>
                     </div>
@@ -155,11 +149,23 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                         </div>
                             <p class="card-text text-center text-warning"></p>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./solved-problems.php">Check</a>
+                                    <a class="btn btn-primary text-center" href="./solved-problems">Check</a>
                             </div>
                         </div>
                     </div>
 
+                    <div class="col mt-3">
+                    <div class="card border-secondary p-3 shadow-lg" style="width:22rem;">
+                        <img src="./images/knowledge.jpeg" alt=LogoImage class="card-image-top" style="height:220px;">
+                        <div class="card-body">   
+                         <h5 class="card-title text-center text-primary fw-bold fs-6 text-uppercase">Knowledge Center</h5>
+                        </div>
+                            <p class="card-text text-center text-info">Share and gain Knowledge on trending topics</p>
+                            <div class="text-center">
+                                    <a class="btn btn-primary text-center" href="./knowledgecenter/add_topic">Participate</a>
+                            </div>
+                        </div>
+                    </div>
                     
 
                     <div class="col mt-3">
@@ -170,7 +176,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                         </div>
                             <p class="card-text  text-info text-center">Practice more and enhance skills</p>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="btn btn-primary text-center" href="./IDE/online_ide">Start Coding</a>
                             </div>
                         </div>
                     </div>
@@ -214,7 +220,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 <?php 
 }else{
 
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>  

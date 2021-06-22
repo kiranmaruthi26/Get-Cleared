@@ -43,19 +43,22 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link"  href="./home-faculty.php">Home</a>
+                                <a class="nav-link"  href="./home-faculty">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="./liveSessions/courseModule.php">Courses Module</a>
+                                <a class="nav-link" aria-current="page" href="./liveSessions/courseModule">Courses Module</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./solve-problem.php">New Problem</a>
+                                <a class="nav-link" href="./solve-problem">New Problem</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./solved-problems.php">Solved Problems</a>
+                                <a class="nav-link" href="./solved-problems">Solved Problems</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Change Password</a>
@@ -67,7 +70,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                     </div>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>Menu
                 </button>
             </div>
         </nav>
@@ -136,7 +139,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 <?php 
 }else{
 
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>  

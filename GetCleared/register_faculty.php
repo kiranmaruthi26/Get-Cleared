@@ -24,10 +24,10 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
             $headers = "From:" . $from."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(mail($to,$subject,$message, $headers)) {
-        		header("Location: emailverification.php?email=$toMail");
+        		header("Location: emailverification?email=$toMail");
 			    exit();	
             } else {
-            	header("Location: index.php?error=Verification Email not sent");
+            	header("Location: index?error=Verification Email not sent");
 			    exit();	
             }
         }
@@ -54,22 +54,22 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 		$section = $_POST['section'];
 
 		if(empty($name)){
-			header("Location: index.php?invalid=Name is required");
+			header("Location: index?invalid=Name is required");
 			exit();	
 
 		}elseif(empty($fac_id)){
-			header("Location: index.php?invalid=Faculty ID is required");
+			header("Location: index?invalid=Faculty ID is required");
 			exit();	
 
 		}elseif ($course == 'selectCourse') {
-			header("Location: index.php?invalid=Please select the course your handling");
+			header("Location: index?invalid=Please select the course your handling");
 			exit();	
 		}elseif(empty($pass)){
-			header("Location: index.php?invalid=password is required");
+			header("Location: index?invalid=password is required");
 			exit();	
 
 		}elseif(empty($cpass)){
-			header("Location: index.php?invalid=Confrom password is required");
+			header("Location: index?invalid=Confrom password is required");
 			exit();	
 
 		}
@@ -79,7 +79,7 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 			$status = mysqli_query($conn,$check_user);
 
 			if(mysqli_num_rows($status) >=1){
-				header("Location: index.php?error=User already exist..! Try login");
+				header("Location: index?error=User already exist..! Try login");
 				exit();
 			}
 			else{
@@ -92,10 +92,10 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 					    sendEmail($email,$name,$vkey);
 						//header("Location: index.php?success=Account created Successfully");
 					}else{
-						header("Location: index.php?error=Error in conneting DataBase");
+						header("Location: index?error=Error in conneting DataBase");
 					}
 				}else{
-					header("Location: index.php?error=password and Conform password should be same");
+					header("Location: index?error=password and Conform password should be same");
 					exit();	
 				}
 
@@ -105,7 +105,7 @@ if(isset($_POST['fname']) && isset($_POST['f_id']) && isset($_POST['fpassword'])
 		}
 }
 else{
-	header("Location: index.php?");
+	header("Location: index?");
 	exit();	
 }
 

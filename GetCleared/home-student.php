@@ -12,7 +12,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-    <link rel="icon" href="/images/icon.png">
+    <link rel="icon" href="./images/icon.png">
     <title>Home - GetCleared</title>
 </head>
 <body>
@@ -39,19 +39,22 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                                     <a class="nav-link" aria-current="page" href="#">Courses Module</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./Ask-doubt.php">Ask a doubt</a>
+                                    <a class="nav-link" href="./Ask-doubt">Ask a doubt</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./checksolutions.php">Solutions</a>
+                                    <a class="nav-link" href="./checksolutions">Solutions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./changePassword-student.php">Change Password</a>
+                                    <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./logout.php">Logout</a>
+                                    <a class="nav-link" href="./changePassword-student">Change Password</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./logout">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -105,7 +108,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                         </div>
                             <p class="card-text text-center text-info">Why wait clear your doubt now with GetCleared</p>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./Ask-doubt.php">Ask a Dout</a>
+                                    <a class="btn btn-primary text-center" href="./Ask-doubt">Ask a Dout</a>
                             </div>
                         </div>
                     </div>
@@ -119,7 +122,20 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                         </div>
                             <p class="card-text text-center text-info">Find the solutions for you doubts here</p>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./checksolutions.php">Check</a>
+                                    <a class="btn btn-primary text-center" href="./checksolutions">Check</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col mt-3">
+                    <div class="card border-secondary p-3 shadow-lg" style="width:22rem;">
+                        <img src="./images/knowledge.jpeg" alt=LogoImage class="card-image-top" style="height:220px;">
+                        <div class="card-body">   
+                         <h5 class="card-title text-center text-primary fw-bold fs-6 text-uppercase">Knowledge Center</h5>
+                        </div>
+                            <p class="card-text text-center text-info">Share and gain Knowledge on trending topics</p>
+                            <div class="text-center">
+                                    <a class="btn btn-primary text-center" href="./knowledgecenter/add_topic">Participate</a>
                             </div>
                         </div>
                     </div>
@@ -134,7 +150,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                         </div>
                             <p class="card-text  text-info text-center">Practice more and enhance skills</p>
                             <div class="text-center">
-                                    <a class="btn btn-primary text-center" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="btn btn-primary text-center" href="./IDE/online_ide">Start Coding</a>
                             </div>
                         </div>
                     </div>

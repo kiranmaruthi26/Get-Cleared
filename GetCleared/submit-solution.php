@@ -10,20 +10,11 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ask a Doubt - GetCleared</title>
+    <title>Send Solution - GetCleared</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="icon" href="./images/icon.png">
-    <script>
-        function openNav() {
-              document.getElementById("mySidenav").style.width = "250px";
-            }
-            
-            function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-            }
-    </script>
 </head>
 <body>
     <header class=" bg-light d-flex">
@@ -43,22 +34,25 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link"  href="./home-faculty.php">Home</a>
+                                    <a class="nav-link"  href="./home-faculty">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" aria-current="page" href="./liveSessions/courseModule.php">Courses Module</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./solve-problem.php">New Problem</a>
+                                    <a class="nav-link active" href="./solve-problem">New Problem</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">Solved Problems</a>
+                                    <a class="nav-link" href="./solved-problem">Solved Problems</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./changePassword-faculty.php">Change Password</a>
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./changePassword-faculty">Change Password</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./logout.php">Logout</a>
@@ -160,7 +154,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                     $headers .= "MIME-Version: 1.0"."\r\n";
                     $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
                     if(!mail($to,$subject,$message, $headers)) {
-                		header("Location: solve-problem.php?error=email Sending faild");
+                		header("Location: solve-problem?error=email Sending faild");
         			    exit();	
                     }
                 }
@@ -178,7 +172,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                 $fname = $_SESSION['name'];
                 
                 if(empty($solution)){
-                    header("Location: submit-solution.php?error=solution field is required");
+                    header("Location: submit-solution?error=solution field is required");
                     exit();
                 }else{
 
@@ -211,16 +205,16 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                                     $toMail = $row['email'];
                                     $sname = $row['name'];
                                     sendEmail($toMail,$sname,$question_id,$dateTime);
-                                    header("Location: solve-problem.php?success=Your Solution was successfully submitted with GetCleared");
+                                    header("Location: solve-problem?success=Your Solution was successfully submitted with GetCleared");
                                 }
                             }else{
-                                header("Location: solve-problem.php?error=error in connection student database");
+                                header("Location: solve-problem?error=error in connection student database");
                             }
                             
                         }
 
                     }else{
-                        header("Location: solve-problem.php?error=Error in connecting Data Base, Please try again later");
+                        header("Location: solve-problem?error=Error in connecting Data Base, Please try again later");
                     }
                 }
 
@@ -262,7 +256,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 <?php 
 }else{
 
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>

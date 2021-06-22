@@ -33,22 +33,25 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link"  href="./home-faculty.php">Home</a>
+                                    <a class="nav-link"  href="./home-faculty">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="./liveSessions/courseModule.php">Courses Module</a>
+                                    <a class="nav-link" aria-current="page" href="./liveSessions/courseModule">Courses Module</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link active" href="#">New Problem</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./solved-problems.php">Solved Problems</a>
+                                    <a class="nav-link" href="./solved-problems">Solved Problems</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./changePassword-faculty.php">Change Password</a>
+                                    <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="./changePassword-faculty">Change Password</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./logout.php">Logout</a>
@@ -137,7 +140,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
                     
 
                     <td>
-                        <form action="submit-solution.php" method=get>
+                        <form action="submit-solution" method=get>
                             <input name=Qid  hidden value =<?php echo $row['id'];?>  >
                             <input  name=rollnumber hidden value =<?php echo $row['rollnumber'];?> >
                             <button type=submit id=qid-button class="btn btn-outline-success btn-sm">Send Solution</button></td>
@@ -184,7 +187,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
         </div>
     </div>
 </div>
@@ -240,7 +242,7 @@ echo "<h5 class=text-center>You have solved everything</h5>";
 <?php 
 }else{
 
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>  

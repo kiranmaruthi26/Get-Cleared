@@ -23,10 +23,10 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
             $headers = "From:" . $from."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(mail($to,$subject,$message, $headers)) {
-        		header("Location: emailverification.php?email=$toMail");
+        		header("Location: emailverification?email=$toMail");
 			    exit();	
             } else {
-            	header("Location: index.php?error=Verification Email not sent");
+            	header("Location: index?error=Verification Email not sent");
 			    exit();	
             }
         }
@@ -51,19 +51,19 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 		$section = $_POST['section'];
 
 		if(empty($name)){
-			header("Location: index.php?error=Name is required");
+			header("Location: index?error=Name is required");
 			exit();	
 
 		}elseif(empty($roll)){
-			header("Location: index.php?error=Roll Number is required");
+			header("Location: index?error=Roll Number is required");
 			exit();	
 
 		}elseif(empty($pass)){
-			header("Location: index.php?error=password is required");
+			header("Location: index?error=password is required");
 			exit();	
 
 		}elseif(empty($cpass)){
-			header("Location: index.php?error=Confrom password is required");
+			header("Location: index?error=Confrom password is required");
 			exit();	
 
 		}else{
@@ -72,7 +72,7 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 			$status = mysqli_query($conn,$check_user);
 
 			if(mysqli_num_rows($status) >=1){
-				header("Location: index.php?error=User already exist..! Try login");
+				header("Location: index?error=User already exist..! Try login");
 				exit();
 			}
 
@@ -85,10 +85,10 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 					    sendEmail($email,$name,$vkey);
 						//header("Location: index.php?success=Account Created Successfully");
 					}else{
-						header("Location: index.php?error=Error in connecting DataBasa");
+						header("Location: index?error=Error in connecting DataBasa");
 					}
 				}else{
-					header("Location: index.php?error=password and Conform password should be same");
+					header("Location: index?error=password and Conform password should be same");
 					exit();	
 				}
 
@@ -97,7 +97,7 @@ if(isset($_POST['name']) && isset($_POST['rollnumber']) && isset($_POST['passwor
 		}
 }
 else{
-	header("Location: index.php?");
+	header("Location: index?");
 	exit();	
 }
 

@@ -17,15 +17,15 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
             function openNav() {
               document.getElementById("mySidenav").style.width = "250px";
           }
-
+          
           function closeNav() {
               document.getElementById("mySidenav").style.width = "0";
           }
-
-
+          
+          
       </script>
-
-
+      
+      
   </head>
   <body>
     <header class=" bg-light d-flex">
@@ -45,22 +45,25 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link"  href="./home-faculty.php">Home</a>
+                                <a class="nav-link"  href="./home-faculty">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="./liveSessions/courseModule.php">Courses Module</a>
+                                <a class="nav-link" aria-current="page" href="./liveSessions/courseModule">Courses Module</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./solve-problem.php">New Problem</a>
+                                <a class="nav-link" href="./solve-problem">New Problem</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" href="#">Solved Problems</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./changePassword-faculty.php">Change Password</a>
+                                <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./changePassword-faculty">Change Password</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./logout.php">Logout</a>
@@ -93,8 +96,8 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
   </div>
 <?php }?>
 <main class="container-fluid d-flex">
-
-
+    
+    
 
     <?php 
     include "db.php";
@@ -105,7 +108,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
     $result = mysqli_query($conn, $sql);
     $count = 0;
     ?>
-
+    
     <?php  if(mysqli_num_rows($result) > 0){?>
         <div class="w-100" style="overflow-x:auto;">
             <table class="table table-striped table-hover text-center shadow rounded" >
@@ -119,7 +122,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
                   </tr>
               </thead>
 
-
+              
 
 
               <?php while($row = mysqli_fetch_array($result)){
@@ -129,12 +132,12 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
 
                 <tbody>
                     <tr>
-                      <th scope="row"><?php echo $row['id'];?></th>
+                      <th scope="row"><?php echo $row['problem_id'];?></th>
                       <td><?php echo $row['rollnumber'];?></td>
                       <td>
                         <button type=button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target=<?php echo "#".$popId?>>Open Solution</button>
                     </td>
-
+                    
                     <?php 
                     if($row['image'] == 0){?>
                         <td><p style="font-size: 10px;">File not Uploaded</p></td>
@@ -205,7 +208,6 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname']) && isset($_SESSION['cours
 <?php }
 
 else{
-    echo "<h5 class=text-center>You haven't solved anything</h5>";
 }
 
 
@@ -248,7 +250,7 @@ else{
 <?php 
 }else{
 
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>  

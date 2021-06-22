@@ -53,10 +53,10 @@
             $headers .= "MIME-Version: 1.0"."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(mail($to,$subject,$message, $headers)) {
-        		header("Location: reset_password.php?uname=$uname &maskmail=$maskedEmail");
+        		header("Location: reset_password?uname=$uname &maskmail=$maskedEmail");
 			    exit();	
             } else {
-            	header("Location: index.php?error=Verification Email not sent");
+            	header("Location: index?error=Verification Email not sent");
 			    exit();	
             }
         }
@@ -91,7 +91,7 @@
                 if(mysqli_query($conn,$update_otp)){
                     sendEmail($row['email'],$row['name'],$otp,$username,Maskemail($row['email']));
                 }else{
-                    header("Location: forgotpassword.php?error=OTP geration faild, Please try agian");
+                    header("Location: forgotpassword?error=OTP geration faild, Please try agian");
                 }
             }
             
@@ -107,12 +107,12 @@
                 if(mysqli_query($conn,$update_otp)){
                     sendEmail($row['email'],$row['name'],$otp,$username,Maskemail($row['email']));
                 }else{
-                    header("Location: forgotpassword.php?error=OTP geration faild, Please try agian");
+                    header("Location: forgotpassword?error=OTP geration faild, Please try agian");
                 }
             }
         
         }else{
-           header("Location: forgotpassword.php?error=Account not found");
+           header("Location: forgotpassword?error=Account not found");
         }
         
         

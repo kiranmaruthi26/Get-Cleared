@@ -35,22 +35,25 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link"  href="./home-student.php">Home</a>
+                                    <a class="nav-link"  href="./home-student">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" aria-current="page" href="#">Courses Module</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./Ask-doubt.php">Ask a doubt</a>
+                                    <a class="nav-link" href="./Ask-doubt">Ask a doubt</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./checksolutions.php">Solutions</a>
+                                    <a class="nav-link" href="./checksolutions">Solutions</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="./IDE/online_ide.php">Start Coding</a>
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="./changePassword-student.php">Change Password</a>
+                                    <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="./changePassword-student">Change Password</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="./logout.php">Logout</a>
@@ -130,7 +133,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['name'])){
 <?php 
 }else{
 
-    header("Location: index.php");
+    header("Location: index");
     exit();
 }
 ?>  

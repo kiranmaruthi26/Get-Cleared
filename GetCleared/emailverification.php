@@ -60,19 +60,19 @@
                         $verification_update = "UPDATE `students` SET verification='verified' WHERE vkey='".$vkey."'";
                         if(mysqli_query($conn,$verification_update))
                         {
-                            header("Location: index.php?success=Your Account is successfully verified, Please Login");
+                            header("Location: index?success=Your Account is successfully verified, Please Login");
         			        exit();
                         }
                         else{
-                            header("Location: index.php?error=Account verification faild, Try again later");
+                            header("Location: index?error=Account verification faild, Try again later");
         			        exit();
                         }
                     }else{
-                        header("Location: index.php?error=Invalid Email");
+                        header("Location: index?error=Invalid Email");
         			    exit();
                     }
                 }else{
-    			     header("Location: index.php?error=Verification Key not found");
+    			     header("Location: index?error=Verification Key not found");
     			    exit();
                 }
                 
@@ -85,19 +85,19 @@
                         $verification_update = "UPDATE `faculty` SET verification='verified' WHERE vkey='".$vkey."'";
                         if(mysqli_query($conn,$verification_update))
                         {
-                            header("Location: index.php?success=Your Account is successfully verified, Please Login");
+                            header("Location: index?success=Your Account is successfully verified, Please Login");
         			        exit();
                         }
                         else{
-                            header("Location: index.php?error=Account verification faild, Try again later");
+                            header("Location: index?error=Account verification faild, Try again later");
         			        exit();
                         }
                    }else{
-                       header("Location: index.php?error=Invalid Email");
+                       header("Location: index?error=Invalid Email");
         			    exit();
                    }
                 }else{
-    			    header("Location: index.php?error=Verification Key not found");
+    			    header("Location: index?error=Verification Key not found");
     			    exit();
                 }
             }else{

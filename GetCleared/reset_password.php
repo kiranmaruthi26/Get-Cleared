@@ -92,14 +92,14 @@
                         
                         if(mysqli_query($conn,$update_pass)){
                             
-                            header("Location: index.php?success=Password reset successfull");
+                            header("Location: index?success=Password reset successfull");
                             
                         }else{
-                            header("Location: reset_password.php?error=Password reset faild");
+                            header("Location: reset_password?error=Password reset faild");
                         }
                         
                     }else{
-                        header("Location: reset_password.php?error=Invalid OTP&uname=$username");
+                        header("Location: reset_password?error=Invalid OTP&uname=$username");
                         exit();
                     }
                     
@@ -111,24 +111,24 @@
                         
                         if(mysqli_query($conn,$update_pass)){
                             
-                            header("Location: index.php?success=Password reset successfull");
+                            header("Location: index?success=Password reset successfull");
                             
                         }else{
-                            header("Location: reset_password.php?error=Password reset faild");
+                            header("Location: reset_password?error=Password reset faild");
                         }
                         
                     }else{
-                        header("Location: reset_password.php?error=Invalid OTP&uname=$username");
+                        header("Location: reset_password?error=Invalid OTP&uname=$username");
                         exit();
                     }
                     
                 }else{
-                    header("Location: reset_password.php?error=Invalid Entry");
+                    header("Location: reset_password?error=Invalid Entry");
                     exit();
                 }
                 
             }else{
-                header("Location: reset_password.php?error=Password and Conform Password must be same&uname=$username");
+                header("Location: reset_password?error=Password and Conform Password must be same&uname=$username");
                 exit();
             }
         }
@@ -139,7 +139,7 @@
 <?php }
 
 else{
-    header("Location: forgotpassword.php");
+    header("Location: forgotpassword");
     exit();
 
 }

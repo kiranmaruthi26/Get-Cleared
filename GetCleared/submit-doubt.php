@@ -22,7 +22,7 @@ session_start();
             $headers .= "MIME-Version: 1.0"."\r\n";
             $headers .= "Content-type: text/html;charset=UTF-8"."\r\n";
             if(!mail($to,$subject,$message, $headers)) {
-        		header("Location: Ask-doubt.php?error=email Sending faild");
+        		header("Location: Ask-doubt?error=email Sending faild");
 			    exit();	
             }
         }
@@ -46,13 +46,13 @@ session_start();
 		}
 
 		if($course == 'emptyValue'){
-			header("Location: Ask-doubt.php?error=Course selection required");
+			header("Location: Ask-doubt?error=Course selection required");
 			exit();
 		}/*else if(empty($files)){
 			header("Location: Ask-doubt.php?error=File selection required");
 			exit();
 		}*/else if(empty($doubt)){
-			header("Location: Ask-doubt.php?error=Doubt field is required");
+			header("Location: Ask-doubt?error=Doubt field is required");
 			exit();
 		}else{
 
@@ -84,10 +84,10 @@ session_start();
     			        $toMail = $row['email'];
     			        $fname = $row['name'];
     			        sendEmail($toMail,$fname,$doubt,$rollnumber);
-    			        header("Location: home-student.php?success=Thankyou, Your doubt was submitted successfully with GetCleared");
+    			        header("Location: home-student?success=Thankyou, Your doubt was submitted successfully with GetCleared");
     			    }
 			    }else{
-			        header("Location: Ask-doubt.php?error=ERROR in connceting Faculty Data base!");
+			        header("Location: Ask-doubt?error=ERROR in connceting Faculty Data base!");
 			    }
 			}else{
 				echo "Error in connectig to form";
@@ -98,7 +98,7 @@ session_start();
 
 	}else{
 
-		header("Location: Ask-doubt.php?error=returning back");
+		header("Location: Ask-doubt?error=returning back");
 		exit();	
 	}
 

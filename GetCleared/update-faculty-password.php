@@ -17,13 +17,13 @@
 		$cNewpassword = validate($_POST['cpassword']);
 
 		if(empty($oldPassword)) {
-			header("Location: changePassword-faculty.php?error=Old password is required");
+			header("Location: changePassword-faculty?error=Old password is required");
 			exit();	
 		}else if(empty($newPassword)) {
-			header("Location: changePassword-faculty.php?error=Please enter New password");
+			header("Location: changePassword-faculty?error=Please enter New password");
 			exit();
 		}else if(empty($cNewpassword)) {
-			header("Location: changePassword-faculty.php?error=Please enter conform new password");
+			header("Location: changePassword-faculty?error=Please enter conform new password");
 			exit();
 		}else{
 			
@@ -39,22 +39,22 @@
 						$update_facultyPass = "UPDATE `faculty` SET password = '".$newPassword."' WHERE faculty_id = '".$faculty_id."'";
 
 						if(mysqli_query($conn,$update_facultyPass)){
-							header("Location: changePassword-faculty.php?success=Password Updated successfully");
+							header("Location: changePassword-faculty?success=Password Updated successfully");
 							exit();
 						}else{
-							header("Location: changePassword-faculty.php?error=Error in connecting DataBase");
+							header("Location: changePassword-faculty?error=Error in connecting DataBase");
 							exit();
 						}
 						
 
 					}else{
-						header("Location: changePassword-faculty.php?error=Please enter Vaild Old password");
+						header("Location: changePassword-faculty?error=Please enter Vaild Old password");
 						exit();
 
 					}
 				}
 			}else{
-				header("Location: changePassword-faculty.php?error=New password and Conform New password must be same");
+				header("Location: changePassword-faculty?error=New password and Conform New password must be same");
 				exit();
 			}
 			
@@ -64,7 +64,7 @@
 
 
 	}else{
-		header("Location: index.php"); 
+		header("Location: index"); 
 		exit();
 	}
 

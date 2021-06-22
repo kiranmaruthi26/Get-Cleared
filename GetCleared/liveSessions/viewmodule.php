@@ -46,6 +46,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 									<a class="nav-link" href="../solved-problems.php">Solved Problems</a>
 								</li>
 								<li class="nav-item">
+                                    <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
+                                </li>
+								<li class="nav-item">
 									<a class="nav-link" href="../IDE/online_ide.php">Start Coding</a>
 								</li>
 								<li class="nav-item">
