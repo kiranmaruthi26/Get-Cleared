@@ -177,16 +177,59 @@
             <p class="info" style="color:blue; font-size:10px;">Your Biometric id will be the username while login</p>
             <input type="text" class="form-control" id="recipient-Fid" name="f_id" required pattern="[0-9]{}">
         </div>
+
+         <div class="form-group">
+            <label  class="col-form-label">Semister</label>
+            <select class="form-control" name="semister" id="semister" onchange="getCourse();" required>
+                <option value="0">Select Semister</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
+        </div>    
+
         <div class="form-group">
-            <lable for="message-text" class="col-form-label">Course your handling (Currently Accepting only IV SEM CSE&CST Only)</lable>
-            <select class="form-control" name="course">
-                <option value="selectCourse">Select course</option>
-                <option value="java">Java</option>
-                <option value="Python">Python</option>
-                <option value="CO">Computer Organisation</option>
-                <option value="flat">FLAT</option>
+            <lable for="message-text" class="col-form-label">Course your handling </lable>
+            <select class="form-control" name="course" id="course" required>
+                <option value="0">Select Course</option>
+                
             </select>
         </div>
+
+        <!--Select Course -->
+        <script type="text/javascript">
+    
+            function getCourse(){
+                var sem = document.getElementById('semister').value;
+                        var course;
+                        var course_code;
+                        if(sem == 4){
+                            course = ["Select Course","Java","Python","FLAT","Software Engineering","Computer Organisation","MEFA","COI","PCS"];
+                            course_code = [0,"java","Python","FLAT","se","co","MEFA","coi","PCS"];
+                        }else if(sem == 5){
+                            course = ["Select Course","Database Management Systems","Computer Networks","Operating Systems","Design and Analysis of Algorithms","Unix Programming","Advanced Data Structures and Algorithms","Artificial Intelligence","Organizational Behavior","PCS - III"];
+                            course_code = [0,"DBMS","CN","OS","DAA","UNIX","ADS","AI","OB","pcs3"];
+                        }else if(sem == 6){
+                            course = ["Select Course","Compiler Design","Data Mining","Object Oriented Analysis and Design through UML", "Cryptography & Network Security", "Software Testing Methodologies", "Internet Of Things","Technical Skills-IV ","Professional Communication Skills -IV"];
+                            course_code = [0,"CD","DM","UML","CNS","STM","IOT","TS4","pcs4"];
+                        }
+
+                        var op = "";
+
+                        for(var i=0; i<course.length;i++){
+                            op+= "<option value="+course_code[i]+">"+course[i]+"</option>";
+                        }
+
+                       // console.log(course);
+                       // console.log(course_code);
+                       // console.log(op);
+                        document.getElementById('course').innerHTML = op;
+            }
+                        
+        </script>
+
+
+
         <div class="form-group">
             <label for="message-text" class="col-form-label">Phone Number</label>
             <p style="margin-bottom:0;font-size:10px;color:blue;">Must be a vaild Indian phone number</p>

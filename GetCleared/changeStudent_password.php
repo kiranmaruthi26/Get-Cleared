@@ -134,7 +134,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
     </section>
     <footer style="background: black;">
         <section>
-            <p style="color: white;text-align: center;padding: 25px;">Copyrights &#169; kiranmaruhti2k21</p>
+            <p style="color: white;text-align: center;padding: 25px;">Copyrights &#169; kiranmaruthi2k21</p>
         </section>
     </footer>
 </body>

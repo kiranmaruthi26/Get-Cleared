@@ -58,6 +58,9 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
                                 <a class="nav-link" href="./knowledgecenter/add_topic">Knowledge Center</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link " href="./materials/viewmaterials">Materials</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="./IDE/online_ide">Start Coding</a>
                             </li>
                             <li class="nav-item">
@@ -117,7 +120,7 @@ if(isset($_SESSION['id']) && isset($_SESSION['fname'])){
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2021 Copyright:
-            <a>kunakiranmaruhti</a>
+            <a href="http://kiranmaruthi.getcleared.in/" target=_blank>kiranmaruthi2k21</a>
         </div>
         <!-- Copyright -->
 

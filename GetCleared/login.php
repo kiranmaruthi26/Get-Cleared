@@ -51,6 +51,7 @@ include "db.php";
 
 			$result_stuednt = mysqli_query($conn, $sql_student);
 			$result_fac = mysqli_query($conn,$sql_fac);
+			
 			if(mysqli_num_rows($result_stuednt) == 1){
 				$sql_student = "SELECT * FROM students WHERE username='".$uname."'";
 				$result_stuednt = mysqli_query($conn, $sql_student);
@@ -63,10 +64,24 @@ include "db.php";
 					$_SESSION['id'] = $row['id'];
 					$_SESSION['name'] = $row['name'];
 					$_SESSION['section'] = $row['section'];
-					
+					$_SESSION['semail'] = $row['email'];
+					$_SESSION['sphone'] = $row['phonenumber'];
 					
 					if($row['verification'] == "verified"){
-					 header("Location: home-student");
+					    $login_counter = $row['track_login'];
+					    $login_counter = $login_counter+1;
+					    
+					    date_default_timezone_set("Asia/Calcutta");
+                        
+					    $sql_update_login_track = "UPDATE students SET track_login='".$login_counter."',recent_login='".date("Y-m-d h:i:s")."' WHERE username='".$_SESSION['username']."' ";
+					    if(mysqli_query($conn,$sql_update_login_track))
+					        header("Location: home-student");
+					        //echo date_default_timezone_get();
+					        //echo $sql_update_login_track;
+					    else{
+					        echo mysqli_query($conn,$sql_update_login_track);
+					        echo $login_counter;
+					    }
 					 exit();   
 					}else{
 					    sendEmail($row['email'],$row['name'],$row['vkey']);
@@ -90,8 +105,25 @@ include "db.php";
 					$_SESSION['fname'] = $row['name'];
 					$_SESSION['course'] = $row['course'];
 					$_SESSION['section'] = $row['section'];
+					$_SESSION['femail'] = $row['email'];
+					$_SESSION['fphone'] = $row['phonenumber'];
 					if($row['verification'] == "verified"){
-					   header("Location: home-faculty");
+					    
+					    $login_counter = $row['track_login'];
+					    $login_counter = $login_counter+1;
+					    
+					    date_default_timezone_set("Asia/Calcutta");
+                        
+					    $sql_update_login_track_faculty = "UPDATE faculty SET track_login='".$login_counter."',recent_login='".date("Y-m-d h:i:s")."' WHERE faculty_id='".$_SESSION['faculty_id']."' ";
+					    if(mysqli_query($conn,$sql_update_login_track_faculty))
+					        header("Location: home-faculty");
+					        //echo date_default_timezone_get();
+					        //echo $sql_update_login_track;
+					    else{
+					        echo mysqli_query($conn,$sql_update_login_track);
+					        echo $login_counter."Hello";
+					    }
+					   
 					   exit();   
 					}else{
 					    sendEmail($row['email'],$row['name'],$row['vkey']);
